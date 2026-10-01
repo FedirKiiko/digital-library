@@ -28,7 +28,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "digital_library.urls"
+ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
@@ -87,3 +87,5 @@ MAILERS = {
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+AUTH_USER_MODEL = "digital_library.Reader"
