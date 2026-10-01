@@ -19,6 +19,9 @@ class Reader(AbstractUser):
         default="avatars/default.jpg"
     )
 
+    def __str__(self) -> str:
+        return f"{self.username}: ({self.first_name} {self.last_name})"
+
 
 class Book(models.Model):
     title = models.CharField(max_length=255)
@@ -47,10 +50,22 @@ class Book(models.Model):
         related_name="books"
     )
 
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ["title"]
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=80)
     description = models.TextField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
 
 
 class Author(models.Model):
@@ -72,6 +87,18 @@ class Author(models.Model):
     def is_alive(self) -> bool:
         return self.death_date is None
 
+    def __str__(self) -> str:
+        if self.pseudonym:
+            return f"{self.pseudonym} ({self.first_name} {self.last_name})"
+        return f"{self.first_name} {self.last_name}"
+
+    def clean(self) -> None:
+        if self.death_date and self.birth_date and self.death_date <= self.birth_date:
+            raise ValidationError("Death date can't be before birth date")
+
+    class Meta:
+        ordering = ["first_name", "last_name"]
+
 
 class Shelf(models.Model):
     name = models.CharField(max_length=255)
@@ -83,6 +110,18 @@ class Shelf(models.Model):
         to="Book",
         related_name="shelves"
     )
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["reader", "name"],
+                name="unique_shelf_per_reader"
+            ),
+        ]
 
 
 class ReaderBook(models.Model):
@@ -115,3 +154,11 @@ class ReaderBook(models.Model):
     review = models.TextField(blank=True, null=True)
     started_at = models.DateField(blank=True, null=True)
     finished_at = models.DateField(blank=True, null=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["reader", "book"],
+                name="unique_reader_book"
+            ),
+        ]
