@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ genre.name }}
+{% endblock %}
+
+{% block content %}
+  <h1>{{ genre.name }}</h1>
+  <p>{{ genre.description }}</p>
+
+  <h3>Books in this genre</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in genre.books.all %}
+        <tr>
+          <td>
+            <a href="{% url 'digital_library:book-detail' book.id %}">
+              <img src="{{ book.cover_image.url }}" class="card-img-top book-small-cover" alt="{{ book.title }}">
+            </a>
+          </td>
+          <td><a href="{% url 'digital_library:book-detail' book.id %}">{{ book.title }}</a></td>
+          <td>
+            {% for author in book.authors.all %}
+              <a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+          <td>{{ book.year_published }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

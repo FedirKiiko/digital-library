@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}
+  Authors
+{% endblock %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Books</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for author in author_list %}
+      <tr>
+        <td>
+          <a href="{% url 'digital_library:author-detail' author.id %}">
+            <img src="{{ author.photo.url }}" class="card-img-top book-small-cover{% if not author.is_alive %} grayscale{% endif %}" alt="{{ author }}">
+          </a>
+        </td>
+        <td><a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a></td>
+        <td>{{ author.country }}</td>
+        <td>
+          {% for book in author.books.all %}
+            <a href="{% url 'digital_library:book-detail' book.id %}">{{ book.title }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

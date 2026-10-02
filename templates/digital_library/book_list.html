@@ -17,8 +17,16 @@
   <tbody>
     {% for book in book_list %}
       <tr>
-        <td><a href="{% url "digital_library:book-detail" book.id %}"><img src="{{ book.cover_image.url }}" class="card-img-top book-small-cover" alt="{{ book.title }}"></a></td>
-        <td><a href="{% url "digital_library:book-detail" book.id %}">{{ book.title }}</a></td>
+        <td>
+          <a href="{% url "digital_library:book-detail" book.id %}">
+            <img src="{{ book.cover_image.url }}" class="card-img-top book-small-cover" alt="{{ book.title }}">
+          </a>
+        </td>
+        <td>
+          <a href="{% url "digital_library:book-detail" book.id %}">
+            {{ book.title }}
+          </a>
+        </td>
         <td>{{ book.genres.all|join:", " }}</td>
         <td>{{ book.authors.all|join:", " }}</td>
         <td>{{ book.year_published }}</td>
