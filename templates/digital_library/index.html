@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="books-grid">
+      {% for book in books %}
+        <div class="book-card">
+          <img src="{{ book.cover_image.url }}" class="card-img-top book-cover" alt="{{ book.title }}">
+          <h3>{{ book.title }}</h3>
+          <p>{{ book.authors.all|join:", " }}</p>
+          <p>Rating: {{ book.avg_rating|floatformat:1 }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+{% endblock %}

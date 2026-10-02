@@ -34,7 +34,7 @@ class Book(models.Model):
             )
         ]
     )
-    publisher = models.CharField(max_length=255)
+    publisher = models.CharField(max_length=255, blank=True, null=True)
     cover_image = models.ImageField(
         upload_to="book_covers/",
         null=True,
@@ -89,7 +89,7 @@ class Author(models.Model):
 
     def __str__(self) -> str:
         if self.pseudonym:
-            return f"{self.pseudonym} ({self.first_name} {self.last_name})"
+            return f"{self.pseudonym}"
         return f"{self.first_name} {self.last_name}"
 
     def clean(self) -> None:

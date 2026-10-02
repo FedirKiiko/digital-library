@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ book.title }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid book-cover-detail">
+    </div>
+
+    <div class="col-md-9">
+      <h1>{{ book.title }}</h1>
+
+      <p>
+        <strong>Authors:</strong>
+        {% for author in book.authors.all %}
+          <a href="{% url 'digital_library:author-detail' pk=author.pk %}">{{ author }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+
+      <p>
+        <strong>Genres:</strong>
+        {% for genre in book.genres.all %}
+          <a href="{% url 'digital_library:genre-detail' pk=genre.pk %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+      {% if book.publisher %}
+        <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+      {% endif %}
+      <p><strong>Year published:</strong> {{ book.year_published }}</p>
+      <p><strong>Pages:</strong> {{ book.pages }}</p>
+
+      {% if user.is_authenticated %}
+        <hr>
+        <h3>My shelves</h3>
+        {# TODO: форма вибору поличок / рейтинг / рецензія #}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
