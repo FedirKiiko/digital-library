@@ -7,13 +7,14 @@ from .views import (
     GenreListView,
     GenreDetailView,
     AuthorsListView,
-    AuthorsDetailView
+    AuthorsDetailView, RegisterView
 )
 
 app_name = "digital_library"
 
 urlpatterns = (
     path("", IndexView.as_view(), name="index"),
+    path("register/", RegisterView.as_view(), name="register"),
     path("books/", BookListView.as_view(), name="book-list"),
     path("books/<int:pk>/", BookDetailView.as_view(), name="book-detail"),
     path("genres/", GenreListView.as_view(), name="genre-list"),

@@ -5,5 +5,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("digital_library.urls", namespace="digital_library"))
+    path("", include("digital_library.urls", namespace="digital_library")),
+    path("accounts/", include("django.contrib.auth.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

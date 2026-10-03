@@ -2,8 +2,10 @@ import random
 from typing import Any
 
 from django.db.models.aggregates import Avg
+from django.urls import reverse_lazy
 from django.views import generic
 
+from digital_library.forms import ReaderRegisterForm
 from digital_library.models import Book, Genre, Author
 
 
@@ -19,6 +21,12 @@ class IndexView(generic.TemplateView):
         )
         context["books"] = random.sample(top_books, min(10, len(top_books)))
         return context
+
+
+class RegisterView(generic.CreateView):
+    form_class = ReaderRegisterForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy("login")
 
 
 class BookListView(generic.ListView):
