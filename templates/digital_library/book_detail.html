@@ -31,12 +31,50 @@
       {% endif %}
       <p><strong>Year published:</strong> {{ book.year_published }}</p>
       <p><strong>Pages:</strong> {{ book.pages }}</p>
+      <p>
+        <strong>Rating:</strong>
+        {% if avg_rating %}{{ avg_rating|floatformat:1 }} / 10{% else %}No ratings yet{% endif %}
+      </p>
 
       {% if user.is_authenticated %}
         <hr>
         <h3>My shelves</h3>
-        {# TODO: форма вибору поличок / рейтинг / рецензія #}
+        <form method="post">
+          {% csrf_token %}
+          {% for shelf in shelves %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="shelves"
+                     value="{{ shelf.id }}" id="shelf{{ shelf.id }}"
+                     {% if shelf.id in selected_shelf_ids %}checked{% endif %}>
+              <label class="form-check-label" for="shelf{{ shelf.id }}">{{ shelf.name }}</label>
+            </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-outline-primary mt-2">Save shelves</button>
+        </form>
+
+        <hr>
+        <h3>My rating and review</h3>
+        {% if reader_book and reader_book.rating %}
+          <p class="text-muted">Your current rating: {{ reader_book.rating }}/10</p>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
       {% endif %}
     </div>
   </div>
+
+  <hr>
+  <h3>Recent reviews</h3>
+  {% for review in recent_reviews %}
+    <div class="mb-3">
+      <strong>{{ review.reader.username }}</strong>
+      {% if review.rating %} — {{ review.rating }}/10{% endif %}
+      <p>{{ review.review }}</p>
+    </div>
+  {% empty %}
+    <p class="text-muted">No reviews yet.</p>
+  {% endfor %}
 {% endblock %}

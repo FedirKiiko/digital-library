@@ -7,7 +7,7 @@ from .views import (
     GenreListView,
     GenreDetailView,
     AuthorsListView,
-    AuthorsDetailView, RegisterView
+    AuthorsDetailView, RegisterView, MyLibraryView
 )
 
 app_name = "digital_library"
@@ -20,5 +20,6 @@ urlpatterns = (
     path("genres/", GenreListView.as_view(), name="genre-list"),
     path("genres/<int:pk>", GenreDetailView.as_view(), name="genre-detail"),
     path("authors/", AuthorsListView.as_view(), name="author-list"),
-    path("authors/<int:pk>",AuthorsDetailView.as_view(), name="author-detail")
+    path("authors/<int:pk>",AuthorsDetailView.as_view(), name="author-detail"),
+    path("my_library/", MyLibraryView.as_view(), name="my-library")
 )
