@@ -21,7 +21,7 @@
       <tr>
         <td>
           <a href="{% url 'digital_library:author-detail' author.id %}">
-            <img src="{{ author.photo.url }}" class="card-img-top book-small-cover{% if not author.is_alive %} grayscale{% endif %}" alt="{{ author }}">
+            <img src="{{ author.photo.url }}" class="card-img-top author-photo-small{% if not author.is_alive %} grayscale{% endif %}" alt="{{ author }}">
           </a>
         </td>
         <td><a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a></td>

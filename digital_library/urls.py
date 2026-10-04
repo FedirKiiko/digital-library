@@ -8,7 +8,7 @@ from .views import (
     GenreDetailView,
     AuthorsListView,
     AuthorsDetailView, RegisterView, MyLibraryView, BookCreateView, BookUpdateView, BookDeleteView, GenreCreateView,
-    GenreUpdateView, GenreDeleteView, AuthorsCreateView, AuthorsUpdateView, AuthorsDeleteView
+    GenreUpdateView, GenreDeleteView, AuthorsCreateView, AuthorsUpdateView, AuthorsDeleteView, ShelfCreateView
 )
 
 app_name = "digital_library"
@@ -36,4 +36,5 @@ urlpatterns = (
     path("authors/<int:pk>/delete/", AuthorsDeleteView.as_view(), name="author-delete"),
 
     path("my_library/", MyLibraryView.as_view(), name="my-library"),
+    path("shelves/create/", ShelfCreateView.as_view(), name="shelf-create"),
 )

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from digital_library.models import Reader, ReaderBook, Book, Genre, Author
+from digital_library.models import Reader, ReaderBook, Book, Genre, Author, Shelf
 
 
 class ReaderRegisterForm(UserCreationForm):
@@ -38,3 +38,18 @@ class AuthorForm(forms.ModelForm):
         model = Author
         fields = ["first_name", "last_name", "pseudonym", "birth_date", "death_date", "bio", "photo", "country"]
 
+
+class ShelfForm(forms.ModelForm):
+    class Meta:
+        model = Shelf
+        fields = ["name"]
+
+    def __init__(self, *args, reader:Reader | None = None, **kwargs) -> None:
+        self.reader = reader
+        super().__init__(*args, **kwargs)
+
+    def clean_name(self) -> str:
+        name = self.cleaned_data["name"]
+        if Shelf.objects.filter(reader=self.reader, name=name).exists():
+            raise forms.ValidationError("You already have a shelf with this name.")
+        return name

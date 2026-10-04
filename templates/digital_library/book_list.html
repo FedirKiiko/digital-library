@@ -15,6 +15,7 @@
       <th>Genre</th>
       <th>Author</th>
       <th>Year</th>
+      <th>Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -30,9 +31,22 @@
             {{ book.title }}
           </a>
         </td>
-        <td>{{ book.genres.all|join:", " }}</td>
-        <td>{{ book.authors.all|join:", " }}</td>
+        <td>
+          {% for genre in book.genres.all %}
+            <a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </td>
+        <td>
+          {% for author in book.authors.all %}
+            <a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </td>
         <td>{{ book.year_published }}</td>
+        <td>
+          <span class="star-rating">
+            <span class="stars-filled" style="width: {{ book.avg_rating_percent|default:0 }}%;"></span>
+          </span>
+        </td>
       </tr>
     {% endfor %}
   </tbody>

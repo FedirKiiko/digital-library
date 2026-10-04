@@ -1,19 +1,22 @@
 .book-cover {
   width: 300px;
   height: 440px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #f0f0f0;
 }
 
 .book-cover-medium {
   width: 150px;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #f0f0f0;
 }
 
 .book-cover-small {
   width: 75px;
   height: 110px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: #f0f0f0;
 }
 
 .books-grid {
@@ -30,4 +33,44 @@
 
 .grayscale {
   filter: grayscale(100%);
+}
+
+.author-photo-small {
+  width: 75px;
+  height: 110px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+}
+
+.author-photo {
+  width: 300px;
+  height: 440px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+}
+
+.star-rating {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+}
+
+.star-rating::before {
+  content: "★★★★★";
+  color: #d3d3d3;
+}
+
+.star-rating .stars-filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #f5a623;
+}
+
+.star-rating .stars-filled::before {
+  content: "★★★★★";
 }

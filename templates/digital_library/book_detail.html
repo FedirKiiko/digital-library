@@ -7,7 +7,7 @@
 {% block content %}
   <div class="row">
     <div class="col-md-3">
-      <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid book-cover-detail">
+      <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid book-cover">
     </div>
 
     <div class="col-md-9">
@@ -38,8 +38,13 @@
       <p><strong>Year published:</strong> {{ book.year_published }}</p>
       <p><strong>Pages:</strong> {{ book.pages }}</p>
       <p>
-        <strong>Rating:</strong>
-        {% if avg_rating %}{{ avg_rating|floatformat:1 }} / 10{% else %}No ratings yet{% endif %}
+        <div class="d-flex align-items-center">
+          <span class="star-rating">
+            <span class="stars-filled" style="width: {{ avg_rating_percent }}%;"></span>
+          </span>
+          <strong class="ml-2">{{ avg_rating|floatformat:2 }}</strong>
+          <span class="text-muted ml-2">{{ ratings_count }} ratings · {{ reviews_count }} reviews</span>
+        </div>
       </p>
 
       {% if user.is_authenticated %}

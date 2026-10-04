@@ -2,14 +2,14 @@ import random
 from typing import Any
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import QuerySet
+from django.db.models import QuerySet, F
 from django.db.models.aggregates import Avg
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-
-from digital_library.forms import ReaderRegisterForm, ReaderBookForm, BookForm, GenreForm, AuthorForm
+from digital_library.forms import ReaderRegisterForm, ReaderBookForm, BookForm, GenreForm, AuthorForm, ShelfForm
 from digital_library.mixins import StaffRequiredMixin
 from digital_library.models import Book, Genre, Author, Shelf, ReaderBook
 from digital_library.services import get_or_create_reader_book, update_reader_shelves
@@ -39,7 +39,10 @@ class BookListView(generic.ListView):
     template_name = "digital_library/book_list.html"
     model = Book
     paginate_by = 10
-    queryset = Book.objects.prefetch_related("authors", "genres")
+    queryset = Book.objects.annotate(
+        avg_rating=Avg("reader_books__rating"),
+        avg_rating_percent=(F("avg_rating") / 10 * 100)
+    ).prefetch_related("authors", "genres")
 
 
 class BookDetailView(generic.DetailView):
@@ -54,6 +57,9 @@ class BookDetailView(generic.DetailView):
         context["recent_reviews"] = book.reader_books.exclude(
             review__isnull=True
         ).exclude(review__exact="").order_by("-id")[:5]
+        context["avg_rating_percent"] = (context["avg_rating"] / 10 * 100) if context["avg_rating"] else 0
+        context["ratings_count"] = book.reader_books.filter(rating__isnull=False).count()
+        context["reviews_count"] = book.reader_books.exclude(review__isnull=True).exclude(review__exact="").count()
 
         if self.request.user.is_authenticated:
             shelves = Shelf.objects.filter(reader=self.request.user)
@@ -104,7 +110,6 @@ class BookDeleteView(StaffRequiredMixin, generic.DeleteView):
     model = Book
     success_url = reverse_lazy("digital_library:book-list")
     template_name = "digital_library/book_confirm_delete.html"
-
 
 
 class GenreListView(generic.ListView):
@@ -185,3 +190,18 @@ class MyLibraryView(LoginRequiredMixin, generic.ListView):
             reader=self.request.user
         ).prefetch_related("books")
 
+
+class ShelfCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Shelf
+    form_class = ShelfForm
+    template_name = "digital_library/shelf_form.html"
+    success_url = reverse_lazy("digital_library:my-library")
+
+    def get_form_kwargs(self) -> dict[str, Any]:
+        kwargs = super().get_form_kwargs()
+        kwargs["reader"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form: ShelfForm) -> HttpResponse:
+        form.instance.reader = self.request.user
+        return super().form_valid(form)
