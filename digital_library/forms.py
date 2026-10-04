@@ -24,7 +24,15 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = Book
         fields = ["title", "pages", "year_published", "publisher", "cover_image", "genres", "authors"]
-        widgets ={"genres": forms.CheckboxSelectMultiple, "authors": forms.CheckboxSelectMultiple}
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "pages": forms.NumberInput(attrs={"class": "form-control"}),
+            "year_published": forms.NumberInput(attrs={"class": "form-control"}),
+            "publisher": forms.TextInput(attrs={"class": "form-control"}),
+            "cover_image": forms.FileInput(attrs={"class": "form-control-file"}),
+            "genres": forms.CheckboxSelectMultiple,
+            "authors": forms.CheckboxSelectMultiple,
+        }
 
 
 class GenreForm(forms.ModelForm):
@@ -37,6 +45,16 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ["first_name", "last_name", "pseudonym", "birth_date", "death_date", "bio", "photo", "country"]
+        widgets = {
+            "first_name": forms.TextInput(attrs={"class": "form-control"}),
+            "last_name": forms.TextInput(attrs={"class": "form-control"}),
+            "pseudonym": forms.TextInput(attrs={"class": "form-control"}),
+            "birth_date": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "death_date": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "bio": forms.Textarea(attrs={"class": "form-control", "rows": 4}),
+            "photo": forms.FileInput(attrs={"class": "form-control-file"}),
+            "country": forms.TextInput(attrs={"class": "form-control"}),
+        }
 
 
 class ShelfForm(forms.ModelForm):
