@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
+  <a href="{% url 'digital_library:book-create' %}" class="btn btn-primary mb-3">Add book</a>
+{% endif %}
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +22,7 @@
       <tr>
         <td>
           <a href="{% url "digital_library:book-detail" book.id %}">
-            <img src="{{ book.cover_image.url }}" class="card-img-top book-small-cover" alt="{{ book.title }}">
+            <img src="{{ book.cover_image.url }}" class="card-img-top book-cover-small" alt="{{ book.title }}">
           </a>
         </td>
         <td>

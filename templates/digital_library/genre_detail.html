@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block content %}
-  <h1>{{ genre.name }}</h1>
+  <h1>
+    {{ genre.name }}
+    {% if user.is_staff %}
+      <a href="{% url 'digital_library:genre-update' genre.pk %}" class="btn btn-outline-secondary">Edit</a>
+      <a href="{% url 'digital_library:genre-delete' genre.pk %}" class="btn btn-outline-danger">Delete</a>
+    {% endif %}
+  </h1>
   <p>{{ genre.description }}</p>
 
   <h3>Books in this genre</h3>

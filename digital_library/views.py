@@ -9,7 +9,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 
-from digital_library.forms import ReaderRegisterForm, ReaderBookForm
+from digital_library.forms import ReaderRegisterForm, ReaderBookForm, BookForm, GenreForm, AuthorForm
+from digital_library.mixins import StaffRequiredMixin
 from digital_library.models import Book, Genre, Author, Shelf, ReaderBook
 from digital_library.services import get_or_create_reader_book, update_reader_shelves
 
@@ -73,15 +74,37 @@ class BookDetailView(generic.DetailView):
         self.object = self.get_object()
         book = self.object
 
-        selected_ids = request.POST.getlist("shelves")
-        update_reader_shelves(user=request.user, book=book, selected_ids=selected_ids)
-
-        reader_book = get_or_create_reader_book(user=request.user, book=book)
-        form = ReaderBookForm(request.POST, instance=reader_book)
-        if form.is_valid():
-            form.save()
+        if request.POST.get("form_type") == "shelves":
+            selected_ids = request.POST.getlist("shelves")
+            update_reader_shelves(user=request.user, book=book, selected_ids=selected_ids)
+        elif request.POST.get("form_type") == "rating":
+            reader_book = get_or_create_reader_book(user=request.user, book=book)
+            form = ReaderBookForm(request.POST, instance=reader_book)
+            if form.is_valid():
+                form.save()
 
         return redirect("digital_library:book-detail", pk=book.pk)
+
+
+class BookCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Book
+    template_name = "digital_library/book_form.html"
+    form_class = BookForm
+    success_url = reverse_lazy("digital_library:book-list")
+
+
+class BookUpdateView(StaffRequiredMixin, generic.UpdateView):
+    model = Book
+    template_name = "digital_library/book_form.html"
+    form_class = BookForm
+    success_url = reverse_lazy("digital_library:book-list")
+
+
+class BookDeleteView(StaffRequiredMixin, generic.DeleteView):
+    model = Book
+    success_url = reverse_lazy("digital_library:book-list")
+    template_name = "digital_library/book_confirm_delete.html"
+
 
 
 class GenreListView(generic.ListView):
@@ -97,6 +120,27 @@ class GenreDetailView(generic.DetailView):
     queryset = Genre.objects.prefetch_related("books")
 
 
+class GenreCreateView(StaffRequiredMixin, generic.CreateView):
+    model = Genre
+    template_name = "digital_library/genre_form.html"
+    form_class = GenreForm
+    success_url = reverse_lazy("digital_library:genre-list")
+
+
+class GenreUpdateView(StaffRequiredMixin, generic.UpdateView):
+    model = Genre
+    template_name = "digital_library/genre_form.html"
+    form_class = GenreForm
+    success_url = reverse_lazy("digital_library:genre-list")
+
+
+class GenreDeleteView(StaffRequiredMixin, generic.DeleteView):
+    model = Genre
+    success_url = reverse_lazy("digital_library:genre-list")
+    template_name = "digital_library/genre_confirm_delete.html"
+
+
+
 class AuthorsListView(generic.ListView):
     template_name = "digital_library/author_list.html"
     model = Author
@@ -110,6 +154,27 @@ class AuthorsDetailView(generic.DetailView):
     queryset = Author.objects.prefetch_related("books")
 
 
+class AuthorsCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Author
+    template_name = "digital_library/author_form.html"
+    form_class = AuthorForm
+    success_url = reverse_lazy("digital_library:author-list")
+
+
+class AuthorsUpdateView(StaffRequiredMixin, generic.UpdateView):
+    model = Author
+    template_name = "digital_library/author_form.html"
+    form_class = AuthorForm
+    success_url = reverse_lazy("digital_library:author-list")
+
+
+class AuthorsDeleteView(StaffRequiredMixin, generic.DeleteView):
+    model = Author
+    success_url = reverse_lazy("digital_library:author-list")
+    template_name = "digital_library/author_confirm_delete.html"
+
+
+
 class MyLibraryView(LoginRequiredMixin, generic.ListView):
     model = Shelf
     template_name = "digital_library/my_library.html"
@@ -119,3 +184,4 @@ class MyLibraryView(LoginRequiredMixin, generic.ListView):
         return Shelf.objects.filter(
             reader=self.request.user
         ).prefetch_related("books")
+

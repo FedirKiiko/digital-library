@@ -4,6 +4,9 @@
 {% endblock %}
 
 {% block content %}
+{% if user.is_staff %}
+  <a href="{% url 'digital_library:genre-create' %}" class="btn btn-primary mb-3">Add genre</a>
+{% endif %}
 <table class="table">
   <thead>
     <tr>

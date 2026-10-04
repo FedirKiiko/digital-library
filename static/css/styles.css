@@ -4,7 +4,13 @@
   object-fit: cover;
 }
 
-.book-small-cover {
+.book-cover-medium {
+  width: 150px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.book-cover-small {
   width: 75px;
   height: 110px;
   object-fit: cover;
@@ -13,6 +19,12 @@
 .books-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.books-grid-medium {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
 }
 
