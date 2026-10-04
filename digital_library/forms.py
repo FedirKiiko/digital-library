@@ -8,7 +8,17 @@ class ReaderRegisterForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Reader
         fields = UserCreationForm.Meta.fields + ("email", "birth_date", "avatar")
+        widgets = {
+            "username": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "birth_date": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "avatar": forms.FileInput(attrs={"class": "form-control-file"}),
+        }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["password1"].widget.attrs["class"] = "form-control"
+        self.fields["password2"].widget.attrs["class"] = "form-control"
 
 
 class ReaderBookForm(forms.ModelForm):
@@ -71,3 +81,14 @@ class ShelfForm(forms.ModelForm):
         if Shelf.objects.filter(reader=self.reader, name=name).exists():
             raise forms.ValidationError("You already have a shelf with this name.")
         return name
+
+class BookSearchForm(forms.Form):
+    search = forms.CharField(max_length=255, required=False)
+
+
+class GenreSearchForm(forms.Form):
+    search = forms.CharField(max_length=255, required=False)
+
+
+class AuthorSearchForm(forms.Form):
+    search = forms.CharField(max_length=255, required=False)

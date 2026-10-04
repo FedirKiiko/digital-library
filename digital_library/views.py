@@ -2,14 +2,22 @@ import random
 from typing import Any
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import QuerySet, F
+from django.db.models import QuerySet, F, Q
 from django.db.models.aggregates import Avg
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from digital_library.forms import ReaderRegisterForm, ReaderBookForm, BookForm, GenreForm, AuthorForm, ShelfForm
+from digital_library.forms import (
+    ReaderRegisterForm,
+    ReaderBookForm,
+    BookForm,
+    GenreForm,
+    AuthorForm,
+    ShelfForm,
+    BookSearchForm, GenreSearchForm, AuthorSearchForm
+)
 from digital_library.mixins import StaffRequiredMixin
 from digital_library.models import Book, Genre, Author, Shelf, ReaderBook
 from digital_library.services import get_or_create_reader_book, update_reader_shelves
@@ -39,10 +47,23 @@ class BookListView(generic.ListView):
     template_name = "digital_library/book_list.html"
     model = Book
     paginate_by = 10
-    queryset = Book.objects.annotate(
-        avg_rating=Avg("reader_books__rating"),
-        avg_rating_percent=(F("avg_rating") / 10 * 100)
-    ).prefetch_related("authors", "genres")
+
+    def get_queryset(self) -> QuerySet:
+        queryset = Book.objects.annotate(
+                avg_rating=Avg("reader_books__rating"),
+                avg_rating_percent=(F("avg_rating") / 10 * 100)
+            ).prefetch_related("authors", "genres")
+        search_query = self.request.GET.get("search")
+        if search_query:
+            queryset = queryset.filter(title__icontains=search_query).distinct()
+        return queryset
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["search_form"] = BookSearchForm(
+            initial={"search": self.request.GET.get("search", "")}
+        )
+        return context
 
 
 class BookDetailView(generic.DetailView):
@@ -116,7 +137,20 @@ class GenreListView(generic.ListView):
     template_name = "digital_library/genre_list.html"
     model = Genre
     paginate_by = 20
-    queryset = Genre.objects.prefetch_related("books")
+
+    def get_queryset(self) -> QuerySet:
+        queryset = Genre.objects.prefetch_related("books")
+        search_query = self.request.GET.get("search")
+        if search_query:
+            queryset = queryset.filter(name__icontains=search_query)
+        return queryset
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["search_form"] = GenreSearchForm(
+            initial={"search": self.request.GET.get("search", "")}
+        )
+        return context
 
 
 class GenreDetailView(generic.DetailView):
@@ -145,12 +179,28 @@ class GenreDeleteView(StaffRequiredMixin, generic.DeleteView):
     template_name = "digital_library/genre_confirm_delete.html"
 
 
-
 class AuthorsListView(generic.ListView):
     template_name = "digital_library/author_list.html"
     model = Author
     paginate_by = 10
-    queryset = Author.objects.prefetch_related("books")
+
+    def get_queryset(self) -> QuerySet:
+        queryset = Author.objects.prefetch_related("books")
+        search_query = self.request.GET.get("search")
+        if search_query:
+            queryset = queryset.filter(
+                Q(first_name__icontains=search_query) |
+                Q(last_name__icontains=search_query) |
+                Q(pseudonym__icontains=search_query)
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["search_form"] = AuthorSearchForm(
+            initial={"search": self.request.GET.get("search", "")}
+        )
+        return context
 
 
 class AuthorsDetailView(generic.DetailView):
