@@ -1,0 +1,2366 @@
+[
+  {
+    "model": "digital_library.reader",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "johnsmith",
+      "first_name": "John",
+      "last_name": "Smith",
+      "email": "john.smith@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-10T12:00:00Z",
+      "birth_date": "1990-03-12",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "amandalee",
+      "first_name": "Amanda",
+      "last_name": "Lee",
+      "email": "amanda.lee@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-03-10T12:00:00Z",
+      "birth_date": "1985-07-22",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "davidkim",
+      "first_name": "David",
+      "last_name": "Kim",
+      "email": "david.kim@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-04-10T12:00:00Z",
+      "birth_date": "1998-11-05",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "sofiaperez",
+      "first_name": "Sofia",
+      "last_name": "Perez",
+      "email": "sofia.perez@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-10T12:00:00Z",
+      "birth_date": "1979-01-30",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "michaelbrown",
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "email": "michael.brown@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-06-10T12:00:00Z",
+      "birth_date": "2001-06-18",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "elenavolkov",
+      "first_name": "Elena",
+      "last_name": "Volkov",
+      "email": "elena.volkov@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-07-10T12:00:00Z",
+      "birth_date": "1993-09-09",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "tomwright",
+      "first_name": "Tom",
+      "last_name": "Wright",
+      "email": "tom.wright@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-10T12:00:00Z",
+      "birth_date": "1988-04-14",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "nataliefox",
+      "first_name": "Natalie",
+      "last_name": "Fox",
+      "email": "natalie.fox@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-09-10T12:00:00Z",
+      "birth_date": "1996-12-02",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ivanpetrenko",
+      "first_name": "Ivan",
+      "last_name": "Petrenko",
+      "email": "ivan.petrenko@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-01-10T12:00:00Z",
+      "birth_date": "1982-08-25",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.reader",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1500000$S2zgIDz5s3uXBLvAyIoyoU$qm/zD/lU/hKpgetthScvuU2/wbqYJrgrmZQcmILMYes=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Admin",
+      "last_name": "User",
+      "email": "admin@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-02-10T12:00:00Z",
+      "birth_date": "1975-05-17",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Fantasy",
+      "description": "Stories set in imaginary worlds where magic and mythical creatures are central."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Science Fiction",
+      "description": "Speculative stories built on science, future technology, space, or alternate realities."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Mystery",
+      "description": "A puzzle-driven plot, usually a crime or disappearance, solved by a detective or amateur sleuth."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Thriller",
+      "description": "Fast-paced stories of tension and high stakes, where characters face constant danger."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 5,
+    "fields": {
+      "name": "Horror",
+      "description": "Fiction designed to frighten and unsettle, often through the supernatural or psychological dread."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 6,
+    "fields": {
+      "name": "Romance",
+      "description": "Stories focused on a love relationship, typically with an emotionally satisfying ending."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 7,
+    "fields": {
+      "name": "Historical Fiction",
+      "description": "Fictional stories set in a real past era, with accurate period detail."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 8,
+    "fields": {
+      "name": "Literary Fiction",
+      "description": "Character-driven, stylistically ambitious works that explore human experience and social themes."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 9,
+    "fields": {
+      "name": "Contemporary Fiction",
+      "description": "Realistic stories set in the present day, dealing with modern life and relationships."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 10,
+    "fields": {
+      "name": "Adventure",
+      "description": "Action-oriented stories of journeys, exploration, and survival in dangerous settings."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 11,
+    "fields": {
+      "name": "Dystopian",
+      "description": "Stories set in oppressive, flawed societies, often warning about political or technological trends."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 12,
+    "fields": {
+      "name": "Young Adult",
+      "description": "Fiction written for teenagers, centered on coming-of-age themes such as identity and first love."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 13,
+    "fields": {
+      "name": "Children's Literature",
+      "description": "Books for young readers, using simple language, illustrations, and age-appropriate lessons."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 14,
+    "fields": {
+      "name": "Crime",
+      "description": "Stories that follow criminals, investigators, or the justice system, often with a grittier tone."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 15,
+    "fields": {
+      "name": "Western",
+      "description": "Tales set in the American frontier, featuring cowboys, outlaws, and the struggle between law and lawlessness."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 16,
+    "fields": {
+      "name": "Biography",
+      "description": "The true story of a person's life, written by someone else or by the subject themselves."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 17,
+    "fields": {
+      "name": "Memoir",
+      "description": "A personal account focused on specific experiences or periods in the author's life."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 18,
+    "fields": {
+      "name": "History",
+      "description": "Non-fiction that researches and narrates real past events, people, and societies."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 19,
+    "fields": {
+      "name": "Self-Help",
+      "description": "Practical non-fiction offering advice on personal growth, habits, and wellbeing."
+    }
+  },
+  {
+    "model": "digital_library.genre",
+    "pk": 20,
+    "fields": {
+      "name": "Science & Technology",
+      "description": "Non-fiction that explains scientific and technical subjects for a general audience."
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "George",
+      "last_name": "Orwell",
+      "pseudonym": null,
+      "birth_date": "1903-06-25",
+      "death_date": "1950-01-21",
+      "bio": "George Orwell is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Agatha",
+      "last_name": "Christie",
+      "pseudonym": null,
+      "birth_date": "1890-09-15",
+      "death_date": "1976-01-12",
+      "bio": "Agatha Christie is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Haruki",
+      "last_name": "Murakami",
+      "pseudonym": null,
+      "birth_date": "1949-01-12",
+      "death_date": null,
+      "bio": "Haruki Murakami is a notable author known for impactful works in their field.",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "Andrzej",
+      "last_name": "Sapkowski",
+      "pseudonym": null,
+      "birth_date": "1948-06-21",
+      "death_date": null,
+      "bio": "Andrzej Sapkowski is a notable author known for impactful works in their field.",
+      "country": "Poland"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 5,
+    "fields": {
+      "first_name": "Samuel",
+      "last_name": "Clemens",
+      "pseudonym": "Mark Twain",
+      "birth_date": "1835-11-30",
+      "death_date": "1910-04-21",
+      "bio": "Samuel Clemens is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 6,
+    "fields": {
+      "first_name": "Ursula",
+      "last_name": "Le Guin",
+      "pseudonym": null,
+      "birth_date": "1929-10-21",
+      "death_date": "2018-01-22",
+      "bio": "Ursula Le Guin is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 7,
+    "fields": {
+      "first_name": "Liu",
+      "last_name": "Cixin",
+      "pseudonym": null,
+      "birth_date": "1963-06-23",
+      "death_date": null,
+      "bio": "Liu Cixin is a notable author known for impactful works in their field.",
+      "country": "China"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 8,
+    "fields": {
+      "first_name": "Franz",
+      "last_name": "Kafka",
+      "pseudonym": null,
+      "birth_date": "1883-07-03",
+      "death_date": "1924-06-03",
+      "bio": "Franz Kafka is a notable author known for impactful works in their field.",
+      "country": "Austria-Hungary"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 9,
+    "fields": {
+      "first_name": "Olga",
+      "last_name": "Tokarczuk",
+      "pseudonym": null,
+      "birth_date": "1962-01-29",
+      "death_date": null,
+      "bio": "Olga Tokarczuk is a notable author known for impactful works in their field.",
+      "country": "Poland"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 10,
+    "fields": {
+      "first_name": "Stephen",
+      "last_name": "King",
+      "pseudonym": "Richard Bachman",
+      "birth_date": "1947-09-21",
+      "death_date": null,
+      "bio": "Stephen King is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 11,
+    "fields": {
+      "first_name": "Jane",
+      "last_name": "Austen",
+      "pseudonym": null,
+      "birth_date": "1775-12-16",
+      "death_date": "1817-07-18",
+      "bio": "Jane Austen is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 12,
+    "fields": {
+      "first_name": "Fyodor",
+      "last_name": "Dostoevsky",
+      "pseudonym": null,
+      "birth_date": "1821-11-11",
+      "death_date": "1881-02-09",
+      "bio": "Fyodor Dostoevsky is a notable author known for impactful works in their field.",
+      "country": "Russia"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 13,
+    "fields": {
+      "first_name": "Leo",
+      "last_name": "Tolstoy",
+      "pseudonym": null,
+      "birth_date": "1828-09-09",
+      "death_date": "1910-11-20",
+      "bio": "Leo Tolstoy is a notable author known for impactful works in their field.",
+      "country": "Russia"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 14,
+    "fields": {
+      "first_name": "Virginia",
+      "last_name": "Woolf",
+      "pseudonym": null,
+      "birth_date": "1882-01-25",
+      "death_date": "1941-03-28",
+      "bio": "Virginia Woolf is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 15,
+    "fields": {
+      "first_name": "Gabriel",
+      "last_name": "Garcia Marquez",
+      "pseudonym": null,
+      "birth_date": "1927-03-06",
+      "death_date": "2014-04-17",
+      "bio": "Gabriel Garcia Marquez is a notable author known for impactful works in their field.",
+      "country": "Colombia"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 16,
+    "fields": {
+      "first_name": "Toni",
+      "last_name": "Morrison",
+      "pseudonym": null,
+      "birth_date": "1931-02-18",
+      "death_date": "2019-08-05",
+      "bio": "Toni Morrison is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 17,
+    "fields": {
+      "first_name": "Isaac",
+      "last_name": "Asimov",
+      "pseudonym": null,
+      "birth_date": "1920-01-02",
+      "death_date": "1992-04-06",
+      "bio": "Isaac Asimov is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 18,
+    "fields": {
+      "first_name": "Philip",
+      "last_name": "Dick",
+      "pseudonym": null,
+      "birth_date": "1928-12-16",
+      "death_date": "1982-03-02",
+      "bio": "Philip Dick is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 19,
+    "fields": {
+      "first_name": "Margaret",
+      "last_name": "Atwood",
+      "pseudonym": null,
+      "birth_date": "1939-11-18",
+      "death_date": null,
+      "bio": "Margaret Atwood is a notable author known for impactful works in their field.",
+      "country": "Canada"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 20,
+    "fields": {
+      "first_name": "Kazuo",
+      "last_name": "Ishiguro",
+      "pseudonym": null,
+      "birth_date": "1954-11-08",
+      "death_date": null,
+      "bio": "Kazuo Ishiguro is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 21,
+    "fields": {
+      "first_name": "Neil",
+      "last_name": "Gaiman",
+      "pseudonym": null,
+      "birth_date": "1960-11-10",
+      "death_date": null,
+      "bio": "Neil Gaiman is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 22,
+    "fields": {
+      "first_name": "J.R.R.",
+      "last_name": "Tolkien",
+      "pseudonym": null,
+      "birth_date": "1892-01-03",
+      "death_date": "1973-09-02",
+      "bio": "J.R.R. Tolkien is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 23,
+    "fields": {
+      "first_name": "C.S.",
+      "last_name": "Lewis",
+      "pseudonym": null,
+      "birth_date": "1898-11-29",
+      "death_date": "1963-11-22",
+      "bio": "C.S. Lewis is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 24,
+    "fields": {
+      "first_name": "Herman",
+      "last_name": "Melville",
+      "pseudonym": null,
+      "birth_date": "1819-08-01",
+      "death_date": "1891-09-28",
+      "bio": "Herman Melville is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 25,
+    "fields": {
+      "first_name": "Emily",
+      "last_name": "Bronte",
+      "pseudonym": null,
+      "birth_date": "1818-07-30",
+      "death_date": "1848-12-19",
+      "bio": "Emily Bronte is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 26,
+    "fields": {
+      "first_name": "Mark",
+      "last_name": "Haddon",
+      "pseudonym": null,
+      "birth_date": "1962-09-26",
+      "death_date": null,
+      "bio": "Mark Haddon is a notable author known for impactful works in their field.",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 27,
+    "fields": {
+      "first_name": "Yuval Noah",
+      "last_name": "Harari",
+      "pseudonym": null,
+      "birth_date": "1976-02-24",
+      "death_date": null,
+      "bio": "Yuval Noah Harari is a notable author known for impactful works in their field.",
+      "country": "Israel"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 28,
+    "fields": {
+      "first_name": "Michelle",
+      "last_name": "Obama",
+      "pseudonym": null,
+      "birth_date": "1964-01-17",
+      "death_date": null,
+      "bio": "Michelle Obama is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 29,
+    "fields": {
+      "first_name": "Walter",
+      "last_name": "Isaacson",
+      "pseudonym": null,
+      "birth_date": "1952-05-20",
+      "death_date": null,
+      "bio": "Walter Isaacson is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.author",
+    "pk": 30,
+    "fields": {
+      "first_name": "James",
+      "last_name": "Clear",
+      "pseudonym": null,
+      "birth_date": "1986-01-22",
+      "death_date": null,
+      "bio": "James Clear is a notable author known for impactful works in their field.",
+      "country": "USA"
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 1,
+    "fields": {
+      "title": "1984",
+      "pages": 328,
+      "year_published": 1949,
+      "publisher": "Secker & Warburg",
+      "authors": [
+        1
+      ],
+      "genres": [
+        2,
+        11
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 2,
+    "fields": {
+      "title": "Animal Farm",
+      "pages": 112,
+      "year_published": 1945,
+      "publisher": "Secker & Warburg",
+      "authors": [
+        1
+      ],
+      "genres": [
+        1,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 3,
+    "fields": {
+      "title": "Murder on the Orient Express",
+      "pages": 256,
+      "year_published": 1934,
+      "publisher": "Collins Crime Club",
+      "authors": [
+        2
+      ],
+      "genres": [
+        3,
+        14
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 4,
+    "fields": {
+      "title": "And Then There Were None",
+      "pages": 272,
+      "year_published": 1939,
+      "publisher": "Collins Crime Club",
+      "authors": [
+        2
+      ],
+      "genres": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 5,
+    "fields": {
+      "title": "Kafka on the Shore",
+      "pages": 505,
+      "year_published": 2002,
+      "publisher": "Shinchosha",
+      "authors": [
+        3
+      ],
+      "genres": [
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 6,
+    "fields": {
+      "title": "Norwegian Wood",
+      "pages": 296,
+      "year_published": 1987,
+      "publisher": "Kodansha",
+      "authors": [
+        3
+      ],
+      "genres": [
+        6,
+        9
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 7,
+    "fields": {
+      "title": "The Last Wish",
+      "pages": 288,
+      "year_published": 1993,
+      "publisher": "superNOWA",
+      "authors": [
+        4
+      ],
+      "genres": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 8,
+    "fields": {
+      "title": "Sword of Destiny",
+      "pages": 368,
+      "year_published": 1992,
+      "publisher": "superNOWA",
+      "authors": [
+        4
+      ],
+      "genres": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 9,
+    "fields": {
+      "title": "The Adventures of Huckleberry Finn",
+      "pages": 366,
+      "year_published": 1884,
+      "publisher": "Chatto & Windus",
+      "authors": [
+        5
+      ],
+      "genres": [
+        10,
+        7
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 10,
+    "fields": {
+      "title": "The Adventures of Tom Sawyer",
+      "pages": 274,
+      "year_published": 1876,
+      "publisher": "American Publishing",
+      "authors": [
+        5
+      ],
+      "genres": [
+        10,
+        13
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 11,
+    "fields": {
+      "title": "A Wizard of Earthsea",
+      "pages": 183,
+      "year_published": 1968,
+      "publisher": "Parnassus Press",
+      "authors": [
+        6
+      ],
+      "genres": [
+        1,
+        12
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 12,
+    "fields": {
+      "title": "The Left Hand of Darkness",
+      "pages": 304,
+      "year_published": 1969,
+      "publisher": "Ace Books",
+      "authors": [
+        6
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 13,
+    "fields": {
+      "title": "The Three-Body Problem",
+      "pages": 399,
+      "year_published": 2008,
+      "publisher": "Chongqing Publishing House",
+      "authors": [
+        7
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 14,
+    "fields": {
+      "title": "The Dark Forest",
+      "pages": 512,
+      "year_published": 2008,
+      "publisher": "Chongqing Publishing House",
+      "authors": [
+        7
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 15,
+    "fields": {
+      "title": "The Metamorphosis",
+      "pages": 201,
+      "year_published": 1915,
+      "publisher": "Kurt Wolff Verlag",
+      "authors": [
+        8
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 16,
+    "fields": {
+      "title": "The Trial",
+      "pages": 304,
+      "year_published": 1925,
+      "publisher": "Verlag Die Schmiede",
+      "authors": [
+        8
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 17,
+    "fields": {
+      "title": "Flights",
+      "pages": 403,
+      "year_published": 2007,
+      "publisher": "Wydawnictwo Literackie",
+      "authors": [
+        9
+      ],
+      "genres": [
+        8,
+        9
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 18,
+    "fields": {
+      "title": "Drive Your Plow Over the Bones of the Dead",
+      "pages": 274,
+      "year_published": 2009,
+      "publisher": "Wydawnictwo Literackie",
+      "authors": [
+        9
+      ],
+      "genres": [
+        3,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 19,
+    "fields": {
+      "title": "The Shining",
+      "pages": 447,
+      "year_published": 1977,
+      "publisher": "Doubleday",
+      "authors": [
+        10
+      ],
+      "genres": [
+        5,
+        4
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 20,
+    "fields": {
+      "title": "It",
+      "pages": 1138,
+      "year_published": 1986,
+      "publisher": "Viking Press",
+      "authors": [
+        10
+      ],
+      "genres": [
+        5
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 21,
+    "fields": {
+      "title": "Pride and Prejudice",
+      "pages": 279,
+      "year_published": 1813,
+      "publisher": "T. Egerton",
+      "authors": [
+        11
+      ],
+      "genres": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 22,
+    "fields": {
+      "title": "Sense and Sensibility",
+      "pages": 409,
+      "year_published": 1811,
+      "publisher": "T. Egerton",
+      "authors": [
+        11
+      ],
+      "genres": [
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 23,
+    "fields": {
+      "title": "Crime and Punishment",
+      "pages": 671,
+      "year_published": 1866,
+      "publisher": "The Russian Messenger",
+      "authors": [
+        12
+      ],
+      "genres": [
+        8,
+        14
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 24,
+    "fields": {
+      "title": "The Brothers Karamazov",
+      "pages": 824,
+      "year_published": 1880,
+      "publisher": "The Russian Messenger",
+      "authors": [
+        12
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 25,
+    "fields": {
+      "title": "War and Peace",
+      "pages": 1225,
+      "year_published": 1869,
+      "publisher": "The Russian Messenger",
+      "authors": [
+        13
+      ],
+      "genres": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 26,
+    "fields": {
+      "title": "Anna Karenina",
+      "pages": 864,
+      "year_published": 1877,
+      "publisher": "The Russian Messenger",
+      "authors": [
+        13
+      ],
+      "genres": [
+        8,
+        6
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 27,
+    "fields": {
+      "title": "Mrs Dalloway",
+      "pages": 194,
+      "year_published": 1925,
+      "publisher": "Hogarth Press",
+      "authors": [
+        14
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 28,
+    "fields": {
+      "title": "To the Lighthouse",
+      "pages": 209,
+      "year_published": 1927,
+      "publisher": "Hogarth Press",
+      "authors": [
+        14
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 29,
+    "fields": {
+      "title": "One Hundred Years of Solitude",
+      "pages": 417,
+      "year_published": 1967,
+      "publisher": "Harper & Row",
+      "authors": [
+        15
+      ],
+      "genres": [
+        8,
+        1
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 30,
+    "fields": {
+      "title": "Love in the Time of Cholera",
+      "pages": 348,
+      "year_published": 1985,
+      "publisher": "Alfred A. Knopf",
+      "authors": [
+        15
+      ],
+      "genres": [
+        8,
+        6
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 31,
+    "fields": {
+      "title": "Beloved",
+      "pages": 324,
+      "year_published": 1987,
+      "publisher": "Alfred A. Knopf",
+      "authors": [
+        16
+      ],
+      "genres": [
+        8,
+        7
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 32,
+    "fields": {
+      "title": "Song of Solomon",
+      "pages": 337,
+      "year_published": 1977,
+      "publisher": "Alfred A. Knopf",
+      "authors": [
+        16
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 33,
+    "fields": {
+      "title": "Foundation",
+      "pages": 255,
+      "year_published": 1951,
+      "publisher": "Gnome Press",
+      "authors": [
+        17
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 34,
+    "fields": {
+      "title": "I, Robot",
+      "pages": 253,
+      "year_published": 1950,
+      "publisher": "Gnome Press",
+      "authors": [
+        17
+      ],
+      "genres": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 35,
+    "fields": {
+      "title": "Do Androids Dream of Electric Sheep?",
+      "pages": 210,
+      "year_published": 1968,
+      "publisher": "Doubleday",
+      "authors": [
+        18
+      ],
+      "genres": [
+        2,
+        11
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 36,
+    "fields": {
+      "title": "The Man in the High Castle",
+      "pages": 274,
+      "year_published": 1962,
+      "publisher": "Putnam",
+      "authors": [
+        18
+      ],
+      "genres": [
+        2,
+        11
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 37,
+    "fields": {
+      "title": "The Handmaid's Tale",
+      "pages": 311,
+      "year_published": 1985,
+      "publisher": "McClelland and Stewart",
+      "authors": [
+        19
+      ],
+      "genres": [
+        2,
+        11
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 38,
+    "fields": {
+      "title": "Oryx and Crake",
+      "pages": 374,
+      "year_published": 2003,
+      "publisher": "McClelland and Stewart",
+      "authors": [
+        19
+      ],
+      "genres": [
+        2,
+        11
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 39,
+    "fields": {
+      "title": "Never Let Me Go",
+      "pages": 288,
+      "year_published": 2005,
+      "publisher": "Faber and Faber",
+      "authors": [
+        20
+      ],
+      "genres": [
+        8,
+        2
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 40,
+    "fields": {
+      "title": "The Remains of the Day",
+      "pages": 245,
+      "year_published": 1989,
+      "publisher": "Faber and Faber",
+      "authors": [
+        20
+      ],
+      "genres": [
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 41,
+    "fields": {
+      "title": "American Gods",
+      "pages": 465,
+      "year_published": 2001,
+      "publisher": "William Morrow",
+      "authors": [
+        21
+      ],
+      "genres": [
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 42,
+    "fields": {
+      "title": "Coraline",
+      "pages": 162,
+      "year_published": 2002,
+      "publisher": "HarperCollins",
+      "authors": [
+        21
+      ],
+      "genres": [
+        5,
+        13
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 43,
+    "fields": {
+      "title": "The Hobbit",
+      "pages": 310,
+      "year_published": 1937,
+      "publisher": "George Allen & Unwin",
+      "authors": [
+        22
+      ],
+      "genres": [
+        1,
+        10
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 44,
+    "fields": {
+      "title": "The Fellowship of the Ring",
+      "pages": 423,
+      "year_published": 1954,
+      "publisher": "George Allen & Unwin",
+      "authors": [
+        22
+      ],
+      "genres": [
+        1,
+        10
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 45,
+    "fields": {
+      "title": "The Lion, the Witch and the Wardrobe",
+      "pages": 206,
+      "year_published": 1950,
+      "publisher": "Geoffrey Bles",
+      "authors": [
+        23
+      ],
+      "genres": [
+        1,
+        13
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 46,
+    "fields": {
+      "title": "Moby-Dick",
+      "pages": 635,
+      "year_published": 1851,
+      "publisher": "Harper & Brothers",
+      "authors": [
+        24
+      ],
+      "genres": [
+        10,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 47,
+    "fields": {
+      "title": "Wuthering Heights",
+      "pages": 342,
+      "year_published": 1847,
+      "publisher": "Thomas Cautley Newby",
+      "authors": [
+        25
+      ],
+      "genres": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 48,
+    "fields": {
+      "title": "The Curious Incident of the Dog in the Night-Time",
+      "pages": 226,
+      "year_published": 2003,
+      "publisher": "Jonathan Cape",
+      "authors": [
+        26
+      ],
+      "genres": [
+        9,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 49,
+    "fields": {
+      "title": "Sapiens: A Brief History of Humankind",
+      "pages": 443,
+      "year_published": 2011,
+      "publisher": "Harvill Secker",
+      "authors": [
+        27
+      ],
+      "genres": [
+        18
+      ]
+    }
+  },
+  {
+    "model": "digital_library.book",
+    "pk": 50,
+    "fields": {
+      "title": "Becoming",
+      "pages": 426,
+      "year_published": 2018,
+      "publisher": "Crown Publishing",
+      "authors": [
+        28
+      ],
+      "genres": [
+        16,
+        17
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 1,
+    "fields": {
+      "name": "Want to read",
+      "reader": 1,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 2,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 1,
+      "books": [
+        20,
+        18
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 3,
+    "fields": {
+      "name": "Read",
+      "reader": 1,
+      "books": [
+        41,
+        8,
+        2,
+        48
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 4,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 1,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 5,
+    "fields": {
+      "name": "Want to read",
+      "reader": 2,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 6,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 2,
+      "books": [
+        47,
+        38
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 7,
+    "fields": {
+      "name": "Read",
+      "reader": 2,
+      "books": [
+        15,
+        9,
+        48,
+        7
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 8,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 2,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 9,
+    "fields": {
+      "name": "Want to read",
+      "reader": 3,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 10,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 3,
+      "books": [
+        2,
+        8
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 11,
+    "fields": {
+      "name": "Read",
+      "reader": 3,
+      "books": [
+        6,
+        38,
+        28,
+        3
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 12,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 3,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 13,
+    "fields": {
+      "name": "Want to read",
+      "reader": 4,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 14,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 4,
+      "books": [
+        2,
+        40
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 15,
+    "fields": {
+      "name": "Read",
+      "reader": 4,
+      "books": [
+        14,
+        15,
+        33,
+        39
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 16,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 4,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 17,
+    "fields": {
+      "name": "Want to read",
+      "reader": 5,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 18,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 5,
+      "books": [
+        36,
+        28
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 19,
+    "fields": {
+      "name": "Read",
+      "reader": 5,
+      "books": [
+        13,
+        46,
+        42,
+        45
+      ]
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 20,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 5,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 21,
+    "fields": {
+      "name": "Want to read",
+      "reader": 6,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 22,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 6,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 23,
+    "fields": {
+      "name": "Read",
+      "reader": 6,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 24,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 6,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 25,
+    "fields": {
+      "name": "Want to read",
+      "reader": 7,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 26,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 7,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 27,
+    "fields": {
+      "name": "Read",
+      "reader": 7,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 28,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 7,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 29,
+    "fields": {
+      "name": "Want to read",
+      "reader": 8,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 30,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 8,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 31,
+    "fields": {
+      "name": "Read",
+      "reader": 8,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 32,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 8,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 33,
+    "fields": {
+      "name": "Want to read",
+      "reader": 9,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 34,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 9,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 35,
+    "fields": {
+      "name": "Read",
+      "reader": 9,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 36,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 9,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 37,
+    "fields": {
+      "name": "Want to read",
+      "reader": 10,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 38,
+    "fields": {
+      "name": "Currently reading",
+      "reader": 10,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 39,
+    "fields": {
+      "name": "Read",
+      "reader": 10,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.shelf",
+    "pk": 40,
+    "fields": {
+      "name": "Did not finish",
+      "reader": 10,
+      "books": []
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 1,
+    "fields": {
+      "reader": 1,
+      "book": 15,
+      "status": "read",
+      "rating": 10,
+      "review": "Good book overall, a bit overhyped though.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 2,
+    "fields": {
+      "reader": 1,
+      "book": 29,
+      "status": "currently_reading",
+      "rating": 7,
+      "review": "One of my favorite books this year.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 3,
+    "fields": {
+      "reader": 1,
+      "book": 38,
+      "status": "read",
+      "rating": 7,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 4,
+    "fields": {
+      "reader": 1,
+      "book": 18,
+      "status": "read",
+      "rating": 8,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 5,
+    "fields": {
+      "reader": 1,
+      "book": 1,
+      "status": "currently_reading",
+      "rating": 7,
+      "review": "Couldn't put it down, finished it in two days.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 6,
+    "fields": {
+      "reader": 2,
+      "book": 3,
+      "status": "currently_reading",
+      "rating": 5,
+      "review": "Couldn't put it down, finished it in two days.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 7,
+    "fields": {
+      "reader": 2,
+      "book": 47,
+      "status": "want_to_read",
+      "rating": 9,
+      "review": "A classic for a reason - still relevant today.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 8,
+    "fields": {
+      "reader": 2,
+      "book": 30,
+      "status": "want_to_read",
+      "rating": 6,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 9,
+    "fields": {
+      "reader": 2,
+      "book": 35,
+      "status": "read",
+      "rating": 10,
+      "review": "Interesting ideas but the execution didn't fully land for me.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 10,
+    "fields": {
+      "reader": 2,
+      "book": 8,
+      "status": "currently_reading",
+      "rating": 5,
+      "review": "Interesting ideas but the execution didn't fully land for me.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 11,
+    "fields": {
+      "reader": 3,
+      "book": 7,
+      "status": "currently_reading",
+      "rating": 6,
+      "review": "A classic for a reason - still relevant today.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 12,
+    "fields": {
+      "reader": 3,
+      "book": 25,
+      "status": "currently_reading",
+      "rating": 6,
+      "review": "Couldn't put it down, finished it in two days.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 13,
+    "fields": {
+      "reader": 3,
+      "book": 18,
+      "status": "want_to_read",
+      "rating": 10,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 14,
+    "fields": {
+      "reader": 3,
+      "book": 30,
+      "status": "want_to_read",
+      "rating": 10,
+      "review": "One of my favorite books this year.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 15,
+    "fields": {
+      "reader": 3,
+      "book": 41,
+      "status": "want_to_read",
+      "rating": 10,
+      "review": "Interesting ideas but the execution didn't fully land for me.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 16,
+    "fields": {
+      "reader": 4,
+      "book": 11,
+      "status": "want_to_read",
+      "rating": 9,
+      "review": "Interesting ideas but the execution didn't fully land for me.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 17,
+    "fields": {
+      "reader": 4,
+      "book": 30,
+      "status": "want_to_read",
+      "rating": 7,
+      "review": "A gripping read from start to finish, highly recommend.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 18,
+    "fields": {
+      "reader": 4,
+      "book": 25,
+      "status": "read",
+      "rating": 5,
+      "review": "A classic for a reason - still relevant today.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 19,
+    "fields": {
+      "reader": 4,
+      "book": 18,
+      "status": "currently_reading",
+      "rating": 7,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 20,
+    "fields": {
+      "reader": 4,
+      "book": 41,
+      "status": "read",
+      "rating": 9,
+      "review": "A classic for a reason - still relevant today.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 21,
+    "fields": {
+      "reader": 5,
+      "book": 14,
+      "status": "read",
+      "rating": 7,
+      "review": "One of my favorite books this year.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 22,
+    "fields": {
+      "reader": 5,
+      "book": 42,
+      "status": "read",
+      "rating": 10,
+      "review": "Couldn't put it down, finished it in two days.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 23,
+    "fields": {
+      "reader": 5,
+      "book": 32,
+      "status": "want_to_read",
+      "rating": 9,
+      "review": "Good book overall, a bit overhyped though.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 24,
+    "fields": {
+      "reader": 5,
+      "book": 26,
+      "status": "want_to_read",
+      "rating": 8,
+      "review": "A classic for a reason - still relevant today.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 25,
+    "fields": {
+      "reader": 5,
+      "book": 30,
+      "status": "read",
+      "rating": 6,
+      "review": "",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 26,
+    "fields": {
+      "reader": 6,
+      "book": 6,
+      "status": "want_to_read",
+      "rating": 6,
+      "review": "Good book overall, a bit overhyped though.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 27,
+    "fields": {
+      "reader": 6,
+      "book": 49,
+      "status": "want_to_read",
+      "rating": 5,
+      "review": "Good book overall, a bit overhyped though.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 28,
+    "fields": {
+      "reader": 6,
+      "book": 4,
+      "status": "currently_reading",
+      "rating": 9,
+      "review": "",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 29,
+    "fields": {
+      "reader": 6,
+      "book": 8,
+      "status": "want_to_read",
+      "rating": 7,
+      "review": "A gripping read from start to finish, highly recommend.",
+      "started_at": null,
+      "finished_at": null
+    }
+  },
+  {
+    "model": "digital_library.readerbook",
+    "pk": 30,
+    "fields": {
+      "reader": 6,
+      "book": 10,
+      "status": "want_to_read",
+      "rating": 10,
+      "review": "Beautifully written, though the pacing felt slow in the middle.",
+      "started_at": null,
+      "finished_at": null
+    }
+  }
+]
