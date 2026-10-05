@@ -115,8 +115,7 @@ class Shelf(models.Model):
     books = models.ManyToManyField(
         to="Book",
         related_name="shelves",
-        blank=True,
-        null=True
+        blank=True
     )
 
     def __str__(self) -> str:

@@ -71,7 +71,7 @@ class BookListView(generic.ListView):
             queryset = queryset.filter(
                 title__icontains=search_query
             ).distinct()
-        return queryset
+        return queryset.order_by("title")
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
