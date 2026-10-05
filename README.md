@@ -33,6 +33,46 @@ Built as a portfolio project for Mate Academy.
 - `core/` — Django project settings
 - `digital_library/` — main app: models, views, forms, templates, static files
 
+## Screenshots
+
+**Home page** — a grid of the highest-rated books, pulled randomly from the
+top 20 by average rating.
+![Home page](docs/screenshots/home.png)
+
+**Book list** — searchable, paginated table with cover, genres, authors,
+year, and a star rating for each book.
+![Book list](docs/screenshots/book_list.png)
+
+**Author list** — searchable table of authors with photo, country, and the
+books they've written.
+![Author list](docs/screenshots/author_list.png)
+
+**Genre list** — all genres with a description and a count of books in each.
+![Genre list](docs/screenshots/genre_list.png)
+
+**Book detail** — full book info, average rating, the reader's own shelves
+and rating/review form, and recent reviews from other readers.
+![Book detail](docs/screenshots/book_detail.png)
+
+**Author detail** — author bio and all their books; the photo turns
+grayscale automatically for authors who have passed away.
+![Author detail](docs/screenshots/author_detail.png)
+
+**Genre detail** — all books belonging to a single genre.
+![Genre detail](docs/screenshots/genre_detail.png)
+
+**My library** — the logged-in reader's shelves with the books on each one.
+![My library](docs/screenshots/my_library.png)
+
+**New shelf** — a reader can create a custom shelf beyond the default ones.
+![New shelf](docs/screenshots/new_shelf.png)
+
+**Reader profile** — the logged-in reader's own info, with an edit option.
+![Profile](docs/screenshots/profile.png)
+
+**Registration** — sign-up form, including optional birth date and avatar.
+![Register](docs/screenshots/register.png)
+
 ## Database schema
 
 ![Database schema](docs/db_schema.png)
