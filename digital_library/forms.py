@@ -30,6 +30,19 @@ class ReaderBookForm(forms.ModelForm):
         }
 
 
+class ReaderUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Reader
+        fields = ["first_name", "last_name", "email", "birth_date", "avatar"]
+        widgets = {
+            "first_name": forms.TextInput(attrs={"class": "form-control"}),
+            "last_name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "birth_date": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "avatar": forms.FileInput(attrs={"class": "form-control-file"}),
+        }
+
+
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book

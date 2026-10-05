@@ -8,7 +8,8 @@ from .views import (
     GenreDetailView,
     AuthorsListView,
     AuthorsDetailView, RegisterView, MyLibraryView, BookCreateView, BookUpdateView, BookDeleteView, GenreCreateView,
-    GenreUpdateView, GenreDeleteView, AuthorsCreateView, AuthorsUpdateView, AuthorsDeleteView, ShelfCreateView
+    GenreUpdateView, GenreDeleteView, AuthorsCreateView, AuthorsUpdateView, AuthorsDeleteView, ShelfCreateView,
+    ReaderUpdateView, ReaderDetailView
 )
 
 app_name = "digital_library"
@@ -37,4 +38,6 @@ urlpatterns = (
 
     path("my_library/", MyLibraryView.as_view(), name="my-library"),
     path("shelves/create/", ShelfCreateView.as_view(), name="shelf-create"),
+    path("profile/", ReaderDetailView.as_view(), name="profile"),
+    path("profile/update/", ReaderUpdateView.as_view(), name="profile-update"),
 )

@@ -16,10 +16,10 @@ from digital_library.forms import (
     GenreForm,
     AuthorForm,
     ShelfForm,
-    BookSearchForm, GenreSearchForm, AuthorSearchForm
+    BookSearchForm, GenreSearchForm, AuthorSearchForm, ReaderUpdateForm
 )
 from digital_library.mixins import StaffRequiredMixin
-from digital_library.models import Book, Genre, Author, Shelf, ReaderBook
+from digital_library.models import Book, Genre, Author, Shelf, ReaderBook, Reader
 from digital_library.services import get_or_create_reader_book, update_reader_shelves
 
 
@@ -229,7 +229,6 @@ class AuthorsDeleteView(StaffRequiredMixin, generic.DeleteView):
     template_name = "digital_library/author_confirm_delete.html"
 
 
-
 class MyLibraryView(LoginRequiredMixin, generic.ListView):
     model = Shelf
     template_name = "digital_library/my_library.html"
@@ -255,3 +254,21 @@ class ShelfCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form: ShelfForm) -> HttpResponse:
         form.instance.reader = self.request.user
         return super().form_valid(form)
+
+
+class ReaderDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Reader
+    template_name = "digital_library/reader_detail.html"
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+class ReaderUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Reader
+    form_class = ReaderUpdateForm
+    template_name = "digital_library/reader_form.html"
+    success_url = reverse_lazy("digital_library:profile")
+
+    def get_object(self, queryset=None):
+        return self.request.user
