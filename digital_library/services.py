@@ -7,6 +7,7 @@ def get_or_create_reader_book(user, book):
     )
     return reader_book
 
+
 def update_reader_shelves(user, book, selected_ids) -> None:
     for shelf in Shelf.objects.filter(reader=user):
         if str(shelf.id) in selected_ids:

@@ -43,11 +43,13 @@ class Book(models.Model):
     )
     genres = models.ManyToManyField(
         to="Genre",
-        related_name="books"
+        related_name="books",
+        blank=True
     )
     authors = models.ManyToManyField(
         to="Author",
-        related_name="books"
+        related_name="books",
+        blank=True
     )
 
     def __str__(self) -> str:
@@ -93,7 +95,11 @@ class Author(models.Model):
         return f"{self.first_name} {self.last_name}"
 
     def clean(self) -> None:
-        if self.death_date and self.birth_date and self.death_date <= self.birth_date:
+        if (
+            self.death_date
+            and self.birth_date
+            and self.death_date <= self.birth_date
+        ):
             raise ValidationError("Death date can't be before birth date")
 
     class Meta:

@@ -3,7 +3,14 @@ from django.contrib.auth.admin import UserAdmin
 from django.db.models import QuerySet
 from django.http import HttpRequest
 
-from digital_library.models import Reader, Book, Genre, Author, ReaderBook, Shelf
+from digital_library.models import (
+    Reader,
+    Book,
+    Genre,
+    Author,
+    ReaderBook,
+    Shelf
+)
 
 
 @admin.register(Reader)
@@ -52,11 +59,11 @@ class BookAdmin(admin.ModelAdmin):
         )
 
     @admin.display(description="Authors")
-    def authors_list(self, obj):
+    def authors_list(self, obj) -> str:
         return ", ".join(str(author) for author in obj.authors.all())
 
     @admin.display(description="Genres")
-    def genres_list(self, obj):
+    def genres_list(self, obj) -> str:
         return ", ".join(genre.name for genre in obj.genres.all())
 
 
@@ -71,7 +78,7 @@ class IsAliveFilter(admin.SimpleListFilter):
     title = "is alive"
     parameter_name = "is_alive"
 
-    def lookups(self, request, model_admin):
+    def lookups(self, request, model_admin) -> tuple:
         return (
             ("yes", "Alive"),
             ("no", "Deceased"),

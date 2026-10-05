@@ -16,11 +16,24 @@ from digital_library.forms import (
     GenreForm,
     AuthorForm,
     ShelfForm,
-    BookSearchForm, GenreSearchForm, AuthorSearchForm, ReaderUpdateForm
+    BookSearchForm,
+    GenreSearchForm,
+    AuthorSearchForm,
+    ReaderUpdateForm
 )
 from digital_library.mixins import StaffRequiredMixin
-from digital_library.models import Book, Genre, Author, Shelf, ReaderBook, Reader
-from digital_library.services import get_or_create_reader_book, update_reader_shelves
+from digital_library.models import (
+    Book,
+    Genre,
+    Author,
+    Shelf,
+    ReaderBook,
+    Reader
+)
+from digital_library.services import (
+    get_or_create_reader_book,
+    update_reader_shelves
+)
 
 
 class IndexView(generic.TemplateView):
@@ -55,7 +68,9 @@ class BookListView(generic.ListView):
             ).prefetch_related("authors", "genres")
         search_query = self.request.GET.get("search")
         if search_query:
-            queryset = queryset.filter(title__icontains=search_query).distinct()
+            queryset = queryset.filter(
+                title__icontains=search_query
+            ).distinct()
         return queryset
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -74,13 +89,21 @@ class BookDetailView(generic.DetailView):
         context = super().get_context_data(**kwargs)
         book = self.object
 
-        context["avg_rating"] = book.reader_books.aggregate(Avg("rating"))["rating__avg"]
+        context["avg_rating"] = book.reader_books.aggregate(
+            Avg("rating")
+        )["rating__avg"]
         context["recent_reviews"] = book.reader_books.exclude(
             review__isnull=True
         ).exclude(review__exact="").order_by("-id")[:5]
-        context["avg_rating_percent"] = (context["avg_rating"] / 10 * 100) if context["avg_rating"] else 0
-        context["ratings_count"] = book.reader_books.filter(rating__isnull=False).count()
-        context["reviews_count"] = book.reader_books.exclude(review__isnull=True).exclude(review__exact="").count()
+        context["avg_rating_percent"] = (
+                context["avg_rating"] / 10 * 100
+        ) if context["avg_rating"] else 0
+        context["ratings_count"] = book.reader_books.filter(
+            rating__isnull=False
+        ).count()
+        context["reviews_count"] = book.reader_books.exclude(
+            review__isnull=True
+        ).exclude(review__exact="").count()
 
         if self.request.user.is_authenticated:
             shelves = Shelf.objects.filter(reader=self.request.user)
@@ -103,9 +126,16 @@ class BookDetailView(generic.DetailView):
 
         if request.POST.get("form_type") == "shelves":
             selected_ids = request.POST.getlist("shelves")
-            update_reader_shelves(user=request.user, book=book, selected_ids=selected_ids)
+            update_reader_shelves(
+                user=request.user,
+                book=book,
+                selected_ids=selected_ids
+            )
         elif request.POST.get("form_type") == "rating":
-            reader_book = get_or_create_reader_book(user=request.user, book=book)
+            reader_book = get_or_create_reader_book(
+                user=request.user,
+                book=book
+            )
             form = ReaderBookForm(request.POST, instance=reader_book)
             if form.is_valid():
                 form.save()
