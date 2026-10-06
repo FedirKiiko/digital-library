@@ -1,22 +1,83 @@
-"""
-URL configuration for digital_library project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+from .views import (
+    BookListView,
+    BookDetailView,
+    IndexView,
+    GenreListView,
+    GenreDetailView,
+    AuthorsListView,
+    AuthorsDetailView,
+    RegisterView,
+    MyLibraryView,
+    BookCreateView,
+    BookUpdateView,
+    BookDeleteView,
+    GenreCreateView,
+    GenreUpdateView,
+    GenreDeleteView,
+    AuthorsCreateView,
+    AuthorsUpdateView,
+    AuthorsDeleteView,
+    ShelfCreateView,
+    ReaderUpdateView,
+    ReaderDetailView
+)
+
+app_name = "digital_library"
+
+urlpatterns = (
+    path("", IndexView.as_view(), name="index"),
+    path("register/", RegisterView.as_view(), name="register"),
+
+    path("books/", BookListView.as_view(), name="book-list"),
+    path("books/create/", BookCreateView.as_view(), name="book-create"),
+    path("books/<int:pk>/", BookDetailView.as_view(), name="book-detail"),
+    path(
+        "books/<int:pk>/update/",
+        BookUpdateView.as_view(),
+        name="book-update"
+    ),
+    path(
+        "books/<int:pk>/delete/",
+        BookDeleteView.as_view(),
+        name="book-delete"
+    ),
+
+    path("genres/", GenreListView.as_view(), name="genre-list"),
+    path("genres/create/", GenreCreateView.as_view(), name="genre-create"),
+    path("genres/<int:pk>", GenreDetailView.as_view(), name="genre-detail"),
+    path(
+        "genres/<int:pk>/update/",
+        GenreUpdateView.as_view(),
+        name="genre-update"
+    ),
+    path(
+        "genres/<int:pk>/delete/",
+        GenreDeleteView.as_view(),
+        name="genre-delete"
+    ),
+
+    path("authors/", AuthorsListView.as_view(), name="author-list"),
+    path("authors/create/", AuthorsCreateView.as_view(), name="author-create"),
+    path(
+        "authors/<int:pk>",
+        AuthorsDetailView.as_view(),
+        name="author-detail"
+    ),
+    path(
+        "authors/<int:pk>/update/",
+        AuthorsUpdateView.as_view(),
+        name="author-update"
+    ),
+    path(
+        "authors/<int:pk>/delete/",
+        AuthorsDeleteView.as_view(),
+        name="author-delete"
+    ),
+
+    path("my_library/", MyLibraryView.as_view(), name="my-library"),
+    path("shelves/create/", ShelfCreateView.as_view(), name="shelf-create"),
+    path("profile/", ReaderDetailView.as_view(), name="profile"),
+    path("profile/update/", ReaderUpdateView.as_view(), name="profile-update"),
+)

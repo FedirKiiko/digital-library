@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+  My profile
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ reader.avatar.url }}" alt="{{ reader.username }}" class="img-fluid rounded-circle">
+    </div>
+    <div class="col-md-9">
+      <h1>{{ reader.username }}</h1>
+      <p><strong>Name:</strong> {{ reader.first_name }} {{ reader.last_name }}</p>
+      <p><strong>Email:</strong> {{ reader.email }}</p>
+      {% if reader.birth_date %}
+        <p><strong>Birth date:</strong> {{ reader.birth_date }}</p>
+      {% endif %}
+      <a href="{% url 'digital_library:profile-update' %}" class="btn btn-outline-primary">Edit profile</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+  Genres
+{% endblock %}
+
+{% block content %}
+{% if user.is_staff %}
+  <a href="{% url 'digital_library:genre-create' %}" class="btn btn-primary mb-3">Add genre</a>
+{% endif %}
+{% block search %}
+  {% include "includes/search_form.html"%}
+{% endblock %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Books</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for genre in genre_list %}
+      <tr>
+        <td><a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a></td>
+        <td>{{ genre.description|truncatechars:100 }}</td>
+        <td>{{ genre.books.count }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

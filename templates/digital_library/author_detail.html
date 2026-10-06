@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ author }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ author.photo.url }}"
+           alt="{{ author }}"
+           class="img-fluid{% if not author.is_alive %} grayscale{% endif %} author-photo">
+    </div>
+
+    <div class="col-md-9">
+      <h1>
+        {{ author }}
+        {% if user.is_staff %}
+          <a href="{% url 'digital_library:author-update' author.pk %}" class="btn btn-outline-secondary">Edit</a>
+          <a href="{% url 'digital_library:author-delete' author.pk %}" class="btn btn-outline-danger">Delete</a>
+        {% endif %}
+      </h1>
+      <p><strong>Country:</strong> {{ author.country }}</p>
+      <p><strong>Born:</strong> {{ author.birth_date }}</p>
+      {% if author.death_date %}
+        <p><strong>Died:</strong> {{ author.death_date }}</p>
+      {% endif %}
+      <p>{{ author.bio }}</p>
+    </div>
+  </div>
+
+
+  <h3>Books</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in author.books.all %}
+        <tr>
+          <td>
+            <a href="{% url 'digital_library:book-detail' book.id %}">
+              <img src="{{ book.cover_image.url }}" class="card-img-top book-cover-small" alt="{{ book.title }}">
+            </a>
+          </td>
+          <td><a href="{% url 'digital_library:book-detail' book.id %}">{{ book.title }}</a></td>
+          <td>
+            {% for genre in book.genres.all %}
+              <a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </td>
+          <td>{{ book.year_published }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

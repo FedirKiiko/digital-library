@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ book.title }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid book-cover">
+    </div>
+
+    <div class="col-md-9">
+      <h1>
+        {{ book.title }}
+        {% if user.is_staff %}
+          <a href="{% url 'digital_library:book-update' book.pk %}" class="btn btn-outline-secondary">Edit</a>
+          <a href="{% url 'digital_library:book-delete' book.pk %}" class="btn btn-outline-danger">Delete</a>
+        {% endif %}
+      </h1>
+
+      <p>
+        <strong>Authors:</strong>
+        {% for author in book.authors.all %}
+          <a href="{% url 'digital_library:author-detail' pk=author.pk %}">{{ author }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+
+      <p>
+        <strong>Genres:</strong>
+        {% for genre in book.genres.all %}
+          <a href="{% url 'digital_library:genre-detail' pk=genre.pk %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+      {% if book.publisher %}
+        <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+      {% endif %}
+      <p><strong>Year published:</strong> {{ book.year_published }}</p>
+      <p><strong>Pages:</strong> {{ book.pages }}</p>
+      <p>
+        <div class="d-flex align-items-center">
+          <span class="star-rating">
+            <span class="stars-filled" style="width: {{ avg_rating_percent }}%;"></span>
+          </span>
+          <strong class="ml-2">{{ avg_rating|floatformat:2 }}</strong>
+          <span class="text-muted ml-2">{{ ratings_count }} ratings · {{ reviews_count }} reviews</span>
+        </div>
+      </p>
+
+      {% if user.is_authenticated %}
+        <hr>
+        <h3>My shelves</h3>
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="form_type" value="shelves">
+          {% for shelf in shelves %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="shelves"
+                     value="{{ shelf.id }}" id="shelf{{ shelf.id }}"
+                     {% if shelf.id in selected_shelf_ids %}checked{% endif %}>
+              <label class="form-check-label" for="shelf{{ shelf.id }}">{{ shelf.name }}</label>
+            </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-outline-primary mt-2">Save shelves</button>
+        </form>
+
+        <hr>
+        <h3>My rating and review</h3>
+        {% if reader_book and reader_book.rating %}
+          <p class="text-muted">Your current rating: {{ reader_book.rating }}/10</p>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="form_type" value="rating">
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+
+  <hr>
+  <h3>Recent reviews</h3>
+  {% for review in recent_reviews %}
+    <div class="mb-3">
+      <strong>{{ review.reader.username }}</strong>
+      {% if review.rating %} — {{ review.rating }}/10{% endif %}
+      <p>{{ review.review }}</p>
+    </div>
+  {% empty %}
+    <p class="text-muted">No reviews yet.</p>
+  {% endfor %}
+{% endblock %}

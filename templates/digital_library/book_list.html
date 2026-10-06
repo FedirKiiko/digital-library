@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}
+  Books
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <a href="{% url 'digital_library:book-create' %}" class="btn btn-primary mb-3">Add book</a>
+{% endif %}
+{% block search %}
+  {% include "includes/search_form.html"%}
+{% endblock %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in book_list %}
+      <tr>
+        <td>
+          <a href="{% url "digital_library:book-detail" book.id %}">
+            <img src="{{ book.cover_image.url }}" class="card-img-top book-cover-small" alt="{{ book.title }}">
+          </a>
+        </td>
+        <td>
+          <a href="{% url "digital_library:book-detail" book.id %}">
+            {{ book.title }}
+          </a>
+        </td>
+        <td>
+          {% for genre in book.genres.all %}
+            <a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </td>
+        <td>
+          {% for author in book.authors.all %}
+            <a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a>{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </td>
+        <td>{{ book.year_published }}</td>
+        <td>
+          <span class="star-rating">
+            <span class="stars-filled" style="width: {{ book.avg_rating_percent|default:0 }}%;"></span>
+          </span>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+
+</table>
+{% endblock %}
