@@ -1,3 +1,6 @@
+# Server live!
+https://digital-library-4wjf.onrender.com/
+
 # Digital Library
 
 A book-tracking website built with Django. Readers can browse books, rate and
