@@ -18,3 +18,14 @@ DATABASES = {
         "PORT": int(os.environ["POSTGRES_DB_PORT"]),
     }
 }
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.environ["CLOUDINARY_CLOUD_NAME"],
+    "API_KEY": os.environ["CLOUDINARY_API_KEY"],
+    "API_SECRET": os.environ["CLOUDINARY_API_SECRET"],
+}
+
+STORAGES = {
+    "default": {"BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"},
+    "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"},
+}
