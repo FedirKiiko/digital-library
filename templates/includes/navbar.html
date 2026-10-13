@@ -1,39 +1,32 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'digital_library:index' %}">Personal Library</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'digital_library:book-list' %}">Books</a>
+{% with current=request.resolver_match.url_name %}
+<nav class="site-nav" aria-label="Main">
+  <div class="container site-nav-inner">
+    <a class="site-brand" href="{% url 'digital_library:index' %}">Personal Library</a>
+    <ul class="site-links">
+      <li><a href="{% url 'digital_library:book-list' %}"{% if 'book' in current %} class="active" aria-current="page"{% endif %}>Books</a></li>
+      <li><a href="{% url 'digital_library:author-list' %}"{% if 'author' in current %} class="active" aria-current="page"{% endif %}>Authors</a></li>
+      <li><a href="{% url 'digital_library:genre-list' %}"{% if 'genre' in current %} class="active" aria-current="page"{% endif %}>Genres</a></li>
+    </ul>
+    <ul class="site-account">
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'digital_library:my-library' %}">My library</a></li>
+        <li>
+          <a class="nav-user" href="{% url 'digital_library:profile' %}">
+            {% if user.avatar %}<img class="nav-avatar" src="{{ user.avatar.url }}" alt="">{% endif %}
+            {{ user.username }}
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'digital_library:author-list' %}">Authors</a>
+        <li>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'digital_library:genre-list' %}">Genres</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'digital_library:my-library' %}">My library</a>
-          </li>
-          <li class="nav-item">
-            <span class="navbar-text text-light mr-2"><a href="{% url 'digital_library:profile' %}">{{ user.username }}</a></span>
-          </li>
-          <li class="nav-item">
-            <form method="post" action="{% url 'logout' %}">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-link nav-link">Logout</button>
-            </form>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'digital_library:register' %}">Register</a>
-          </li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
+      {% else %}
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'digital_library:register' %}">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% endwith %}

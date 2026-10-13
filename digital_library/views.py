@@ -1,6 +1,7 @@
 import random
 from typing import Any
 
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import QuerySet, F, Q
 from django.db.models.aggregates import Avg
@@ -46,7 +47,7 @@ class IndexView(generic.TemplateView):
             .filter(avg_rating__isnull=False)
             .order_by("-avg_rating")[:20]
         )
-        context["books"] = random.sample(top_books, min(10, len(top_books)))
+        context["books"] = random.sample(top_books, min(12, len(top_books)))
         return context
 
 
@@ -59,7 +60,7 @@ class RegisterView(generic.CreateView):
 class BookListView(generic.ListView):
     template_name = "digital_library/book_list.html"
     model = Book
-    paginate_by = 10
+    paginate_by = 12
 
     def get_queryset(self) -> QuerySet:
         queryset = Book.objects.annotate(
@@ -131,6 +132,7 @@ class BookDetailView(generic.DetailView):
                 book=book,
                 selected_ids=selected_ids
             )
+            messages.success(request, "Your shelves were updated.")
         elif request.POST.get("form_type") == "rating":
             reader_book = get_or_create_reader_book(
                 user=request.user,
@@ -139,6 +141,9 @@ class BookDetailView(generic.DetailView):
             form = ReaderBookForm(request.POST, instance=reader_book)
             if form.is_valid():
                 form.save()
+                messages.success(request, "Your rating and review were saved.")
+            else:
+                messages.error(request, "Your rating and review could not be saved.")
 
         return redirect("digital_library:book-detail", pk=book.pk)
 
@@ -212,7 +217,7 @@ class GenreDeleteView(StaffRequiredMixin, generic.DeleteView):
 class AuthorsListView(generic.ListView):
     template_name = "digital_library/author_list.html"
     model = Author
-    paginate_by = 10
+    paginate_by = 12
 
     def get_queryset(self) -> QuerySet:
         queryset = Author.objects.prefetch_related("books")

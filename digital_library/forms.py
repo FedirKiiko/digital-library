@@ -39,7 +39,11 @@ class ReaderBookForm(forms.ModelForm):
         model = ReaderBook
         fields = ["rating", "review"]
         widgets = {
-            "review": forms.Textarea(attrs={"rows": 3}),
+            "rating": forms.RadioSelect(
+                choices=[(number, str(number)) for number in range(1, 11)],
+                attrs={"class": "scale-input"},
+            ),
+            "review": forms.Textarea(attrs={"rows": 4}),
         }
 
 

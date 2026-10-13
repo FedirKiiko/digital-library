@@ -1,26 +1,27 @@
 {% extends "base.html" %}
-{% block title %}
-  My library
-{% endblock %}
+{% block title %}My library{% endblock %}
 
 {% block content %}
-  <h1>My library</h1>
-  <a href="{% url 'digital_library:shelf-create' %}" class="btn btn-outline-primary mb-3">New shelf</a>
+  <div class="page-head">
+    <h1>My library</h1>
+    <a href="{% url 'digital_library:shelf-create' %}" class="btn btn-outline-primary">New shelf</a>
+  </div>
+
   {% for shelf in shelves %}
-    <h3>{{ shelf.name }}</h3>
-    {% if shelf.books.all %}
-      <div class="books-grid-medium">
-        {% for book in shelf.books.all %}
-          <div class="book-card">
-            <a href="{% url 'digital_library:book-detail' book.id %}">
-              <img src="{{ book.cover_image.url }}" class="book-cover-medium" alt="{{ book.title }}">
-            </a>
-            <p>{{ book.title|truncatechars:30 }}</p>
-          </div>
-        {% endfor %}
+    <section class="library-shelf" aria-labelledby="shelf-{{ shelf.id }}">
+      <div class="library-shelf-head">
+        <h2 id="shelf-{{ shelf.id }}">{{ shelf.name }}</h2>
+        <span class="muted">{{ shelf.books.all|length }} book{{ shelf.books.all|length|pluralize }}</span>
       </div>
-    {% else %}
-      <p class="text-muted">No books yet.</p>
-    {% endif %}
+      {% if shelf.books.all %}
+        <div class="shelf shelf-compact">
+          {% for book in shelf.books.all %}
+            {% include "includes/book_tile.html" with compact=True %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="empty">Nothing here yet. <a href="{% url 'digital_library:book-list' %}">Browse books</a> and add one from its page.</p>
+      {% endif %}
+    </section>
   {% endfor %}
 {% endblock %}

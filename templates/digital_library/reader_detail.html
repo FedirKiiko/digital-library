@@ -1,21 +1,25 @@
 {% extends "base.html" %}
-
-{% block title %}
-  My profile
-{% endblock %}
+{% block title %}My profile{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-3">
-      <img src="{{ reader.avatar.url }}" alt="{{ reader.username }}" class="img-fluid rounded-circle">
-    </div>
-    <div class="col-md-9">
-      <h1>{{ reader.username }}</h1>
-      <p><strong>Name:</strong> {{ reader.first_name }} {{ reader.last_name }}</p>
-      <p><strong>Email:</strong> {{ reader.email }}</p>
-      {% if reader.birth_date %}
-        <p><strong>Birth date:</strong> {{ reader.birth_date }}</p>
+  <div class="detail">
+    <div>
+      {% if reader.avatar %}
+        <img src="{{ reader.avatar.url }}" alt="Your avatar" class="img-fluid rounded-circle" style="aspect-ratio: 1; object-fit: cover;">
       {% endif %}
+    </div>
+    <div>
+      <h1>{{ reader.username }}</h1>
+      <dl class="facts mt-3">
+        <dt>Name</dt>
+        <dd>{{ reader.first_name }} {{ reader.last_name }}</dd>
+        <dt>Email</dt>
+        <dd>{{ reader.email }}</dd>
+        {% if reader.birth_date %}
+          <dt>Birth date</dt>
+          <dd>{{ reader.birth_date }}</dd>
+        {% endif %}
+      </dl>
       <a href="{% url 'digital_library:profile-update' %}" class="btn btn-outline-primary">Edit profile</a>
     </div>
   </div>

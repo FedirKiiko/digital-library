@@ -1,62 +1,52 @@
 {% extends "base.html" %}
-
-{% block title %}
-  {{ author }}
-{% endblock %}
+{% block title %}{{ author }}{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-3">
-      <img src="{{ author.photo.url }}"
-           alt="{{ author }}"
-           class="img-fluid{% if not author.is_alive %} grayscale{% endif %} author-photo">
+  <div class="detail">
+    <div>
+      <div class="portrait">
+        <img src="{{ author.photo.url }}" alt="Portrait of {{ author }}"{% if not author.is_alive %} class="grayscale"{% endif %}>
+      </div>
     </div>
 
-    <div class="col-md-9">
-      <h1>
-        {{ author }}
+    <div>
+      <div class="detail-head">
+        <h1>{{ author }}</h1>
         {% if user.is_staff %}
-          <a href="{% url 'digital_library:author-update' author.pk %}" class="btn btn-outline-secondary">Edit</a>
-          <a href="{% url 'digital_library:author-delete' author.pk %}" class="btn btn-outline-danger">Delete</a>
+          <div class="detail-actions">
+            <a href="{% url 'digital_library:author-update' author.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'digital_library:author-delete' author.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+          </div>
         {% endif %}
-      </h1>
-      <p><strong>Country:</strong> {{ author.country }}</p>
-      <p><strong>Born:</strong> {{ author.birth_date }}</p>
-      {% if author.death_date %}
-        <p><strong>Died:</strong> {{ author.death_date }}</p>
-      {% endif %}
-      <p>{{ author.bio }}</p>
+      </div>
+
+      <dl class="facts mt-3">
+        {% if author.country %}
+          <dt>Country</dt>
+          <dd>{{ author.country }}</dd>
+        {% endif %}
+        {% if author.birth_date %}
+          <dt>Born</dt>
+          <dd>{{ author.birth_date }}</dd>
+        {% endif %}
+        {% if author.death_date %}
+          <dt>Died</dt>
+          <dd>{{ author.death_date }}</dd>
+        {% endif %}
+      </dl>
+
+      {% if author.bio %}<p>{{ author.bio }}</p>{% endif %}
     </div>
   </div>
 
-
-  <h3>Books</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Cover</th>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Year</th>
-      </tr>
-    </thead>
-    <tbody>
+  <h2 class="mb-4">Books by {{ author }}</h2>
+  {% if author.books.all %}
+    <div class="shelf">
       {% for book in author.books.all %}
-        <tr>
-          <td>
-            <a href="{% url 'digital_library:book-detail' book.id %}">
-              <img src="{{ book.cover_image.url }}" class="card-img-top book-cover-small" alt="{{ book.title }}">
-            </a>
-          </td>
-          <td><a href="{% url 'digital_library:book-detail' book.id %}">{{ book.title }}</a></td>
-          <td>
-            {% for genre in book.genres.all %}
-              <a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-          </td>
-          <td>{{ book.year_published }}</td>
-        </tr>
+        {% include "includes/book_tile.html" %}
       {% endfor %}
-    </tbody>
-  </table>
+    </div>
+  {% else %}
+    <p class="empty">No books by this author yet.</p>
+  {% endif %}
 {% endblock %}
