@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ author }}{% endblock %}
+
+{% block content %}
+  <div class="detail">
+    <div>
+      <div class="portrait">
+        <img src="{{ author.photo.url }}" alt="Portrait of {{ author }}"{% if not author.is_alive %} class="grayscale"{% endif %}>
+      </div>
+    </div>
+
+    <div>
+      <div class="detail-head">
+        <h1>{{ author }}</h1>
+        {% if user.is_staff %}
+          <div class="detail-actions">
+            <a href="{% url 'digital_library:author-update' author.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'digital_library:author-delete' author.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+
+      <dl class="facts mt-3">
+        {% if author.country %}
+          <dt>Country</dt>
+          <dd>{{ author.country }}</dd>
+        {% endif %}
+        {% if author.birth_date %}
+          <dt>Born</dt>
+          <dd>{{ author.birth_date }}</dd>
+        {% endif %}
+        {% if author.death_date %}
+          <dt>Died</dt>
+          <dd>{{ author.death_date }}</dd>
+        {% endif %}
+      </dl>
+
+      {% if author.bio %}<p>{{ author.bio }}</p>{% endif %}
+    </div>
+  </div>
+
+  <h2 class="mb-4">Books by {{ author }}</h2>
+  {% if author.books.all %}
+    <div class="shelf">
+      {% for book in author.books.all %}
+        {% include "includes/book_tile.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No books by this author yet.</p>
+  {% endif %}
+{% endblock %}

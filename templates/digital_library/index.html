@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Personal Library{% endblock %}
+
+{% block content %}
+  <div class="page-head">
+    <div>
+      <h1>Highly rated right now</h1>
+      <p class="page-head-sub">A random pick from the 20 best-rated books. Refresh for another.</p>
+    </div>
+  </div>
+
+  {% if books %}
+    <div class="shelf">
+      {% for book in books %}
+        {% include "includes/book_tile.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No ratings yet. Rate a book and it will show up here.</p>
+  {% endif %}
+{% endblock %}

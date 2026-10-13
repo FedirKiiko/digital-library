@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Books{% endblock %}
+
+{% block content %}
+  <div class="page-head">
+    <div>
+      <h1>Books</h1>
+      <p class="page-head-sub">{{ page_obj.paginator.count }} in the catalogue</p>
+    </div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'digital_library:book-create' %}" class="btn btn-primary">Add a book</a>
+    {% endif %}
+  </div>
+
+  <div class="toolbar">
+    {% include "includes/search_form.html" with label="Search books" placeholder="Search by title" %}
+  </div>
+
+  {% if book_list %}
+    <div class="shelf">
+      {% for book in book_list %}
+        {% include "includes/book_tile.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No books match your search.</p>
+  {% endif %}
+{% endblock %}

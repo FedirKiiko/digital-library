@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Genres{% endblock %}
+
+{% block content %}
+  <div class="page-head">
+    <div>
+      <h1>Genres</h1>
+      <p class="page-head-sub">{{ page_obj.paginator.count }} genres</p>
+    </div>
+    {% if user.is_staff %}
+      <a href="{% url 'digital_library:genre-create' %}" class="btn btn-primary">Add a genre</a>
+    {% endif %}
+  </div>
+
+  <div class="toolbar">
+    {% include "includes/search_form.html" with label="Search genres" placeholder="Search by name" %}
+  </div>
+
+  {% if genre_list %}
+    <ul class="entry-list">
+      {% for genre in genre_list %}
+        <li class="entry">
+          <h2 class="entry-name"><a href="{% url 'digital_library:genre-detail' genre.id %}">{{ genre.name }}</a></h2>
+          <p class="entry-text">{{ genre.description|truncatechars:140 }}</p>
+          <span class="entry-count">{{ genre.books.count }} book{{ genre.books.count|pluralize }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty">No genres match your search.</p>
+  {% endif %}
+{% endblock %}

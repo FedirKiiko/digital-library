@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ genre.name }}{% endblock %}
+
+{% block content %}
+  <div class="page-head">
+    <div>
+      <div class="detail-head">
+        <h1>{{ genre.name }}</h1>
+        {% if user.is_staff %}
+          <div class="detail-actions">
+            <a href="{% url 'digital_library:genre-update' genre.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'digital_library:genre-delete' genre.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+          </div>
+        {% endif %}
+      </div>
+      {% if genre.description %}<p class="page-head-sub">{{ genre.description }}</p>{% endif %}
+    </div>
+  </div>
+
+  {% if genre.books.all %}
+    <div class="shelf">
+      {% for book in genre.books.all %}
+        {% include "includes/book_tile.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">No books in this genre yet.</p>
+  {% endif %}
+{% endblock %}

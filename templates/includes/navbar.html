@@ -1,0 +1,32 @@
+{% with current=request.resolver_match.url_name %}
+<nav class="site-nav" aria-label="Main">
+  <div class="container site-nav-inner">
+    <a class="site-brand" href="{% url 'digital_library:index' %}">Personal Library</a>
+    <ul class="site-links">
+      <li><a href="{% url 'digital_library:book-list' %}"{% if 'book' in current %} class="active" aria-current="page"{% endif %}>Books</a></li>
+      <li><a href="{% url 'digital_library:author-list' %}"{% if 'author' in current %} class="active" aria-current="page"{% endif %}>Authors</a></li>
+      <li><a href="{% url 'digital_library:genre-list' %}"{% if 'genre' in current %} class="active" aria-current="page"{% endif %}>Genres</a></li>
+    </ul>
+    <ul class="site-account">
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'digital_library:my-library' %}">My library</a></li>
+        <li>
+          <a class="nav-user" href="{% url 'digital_library:profile' %}">
+            {% if user.avatar %}<img class="nav-avatar" src="{{ user.avatar.url }}" alt="">{% endif %}
+            {{ user.username }}
+          </a>
+        </li>
+        <li>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+        </li>
+      {% else %}
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'digital_library:register' %}">Register</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+{% endwith %}

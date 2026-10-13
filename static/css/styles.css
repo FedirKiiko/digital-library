@@ -1,0 +1,848 @@
+/* ==========================================================================
+   Personal Library: design system
+   Loaded after Bootstrap 4, so these rules override its defaults.
+   Idea: books stand on shelves. The shelf line under covers is the one
+   decorative device; everything else stays quiet.
+   ========================================================================== */
+
+:root {
+  --ink: #17352e;          /* deep spruce: nav, shelf boards, headings */
+  --moss: #2f6b58;         /* interactive: links, buttons, selected states */
+  --moss-dark: #22513f;
+  --brass: #b7893a;        /* stars and rating highlights */
+  --page: #f2f5f2;         /* page background, cool off-white */
+  --surface: #ffffff;
+  --text: #1d2623;
+  --muted: #5e6b66;
+  --line: #d5dcd7;
+  --danger: #a63d2f;
+
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-ui: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius: 6px;
+  --shelf-gap: 1.25rem;
+}
+
+/* ---------- Base ---------- */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--page);
+  color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page {
+  flex: 1 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.1rem; font-weight: 700; }
+h2 { font-size: 1.5rem; font-weight: 600; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+
+p { max-width: 70ch; }
+
+a {
+  color: var(--moss);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--moss-dark);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.pill-input:focus-visible + .pill,
+.scale-input:focus-visible + .scale-label {
+  outline: 3px solid var(--brass);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Navigation ---------- */
+
+.site-nav {
+  background: var(--ink);
+  color: #fff;
+}
+
+.site-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.site-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+}
+
+.site-brand:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-links,
+.site-account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-account {
+  margin-left: auto;
+}
+
+.site-links a,
+.site-account a,
+.site-account button {
+  color: rgba(255, 255, 255, 0.82);
+  font: inherit;
+  padding: 0.25rem 0;
+  border: 0;
+  background: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.site-links a:hover,
+.site-account a:hover,
+.site-account button:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-links a.active {
+  color: #fff;
+  border-bottom-color: var(--brass);
+}
+
+.nav-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--moss);
+}
+
+.site-account form {
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  font-family: var(--font-ui);
+  border-radius: var(--radius);
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: var(--moss);
+  border-color: var(--moss);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background: var(--moss-dark);
+  border-color: var(--moss-dark);
+}
+
+.btn-outline-primary {
+  color: var(--moss);
+  border-color: var(--moss);
+}
+
+.btn-outline-primary:hover {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: #fff;
+}
+
+.btn-outline-secondary {
+  color: var(--text);
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--page);
+  border-color: var(--muted);
+  color: var(--text);
+}
+
+.btn-outline-danger,
+.btn-danger {
+  border-color: var(--danger);
+}
+
+.btn-outline-danger {
+  color: var(--danger);
+  background: var(--surface);
+}
+
+.btn-outline-danger:hover,
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #8c3225;
+  border-color: #8c3225;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+/* ---------- Page header (title + actions) ---------- */
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-head h1 {
+  margin: 0;
+}
+
+.page-head-sub {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.toolbar .search-form {
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.search-form input {
+  flex: 1 1 auto;
+}
+
+/* ---------- Shelf: covers standing on a board ---------- */
+
+/* Column counts (2, 3, 4, 6) all divide 12, so a page of 12 items always
+   fills complete rows. */
+.shelf,
+.people {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--shelf-gap);
+  row-gap: 2rem;
+}
+
+@media (min-width: 576px) {
+  .shelf, .people { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .shelf, .people { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1200px) {
+  .shelf, .people { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.shelf.shelf-compact {
+  grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+  row-gap: 1.5rem;
+}
+
+.shelf-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* The board: extends half a gap each side so neighbouring boards join up. */
+.shelf-item-cover {
+  display: block;
+  margin: 0 calc(var(--shelf-gap) / -2);
+  padding: 0 calc(var(--shelf-gap) / 2);
+  aspect-ratio: 2 / 3;
+  border-bottom: 7px solid var(--ink);
+  box-shadow: 0 9px 10px -9px rgba(23, 53, 46, 0.6);
+}
+
+.shelf-item-cover img,
+.detail-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.shelf-item-caption {
+  padding-top: 0.75rem;
+}
+
+.shelf-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shelf-item-title a {
+  color: var(--ink);
+}
+
+.shelf-item-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.rating-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Stars ---------- */
+
+.star-rating {
+  position: relative;
+  display: inline-block;
+  font-size: 1.1rem;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+.star-rating::before {
+  content: "★★★★★";
+  color: #d3d9d5;
+}
+
+.star-rating .stars-filled {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--brass);
+}
+
+.star-rating .stars-filled::before {
+  content: "★★★★★";
+}
+
+.star-rating-lg {
+  font-size: 1.7rem;
+}
+
+.rating-number {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ---------- Lists (genres) ---------- */
+
+.entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.entry-text {
+  grid-column: 1;
+  margin: 0;
+  color: var(--muted);
+}
+
+.entry-count {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Detail pages ---------- */
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.detail-cover {
+  aspect-ratio: 2 / 3;
+  border-bottom: 9px solid var(--ink);
+  box-shadow: 0 11px 12px -10px rgba(23, 53, 46, 0.6);
+}
+
+.detail-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.detail-head h1 {
+  margin: 0;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.detail-byline {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.1rem;
+}
+
+.rating-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.rating-row .rating-score {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.35rem 1.5rem;
+  margin: 0 0 2rem;
+}
+
+.facts dt {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+/* Author portraits: the grayscale class is applied in the template for
+   authors who have passed away; hovering brings the colour back. */
+.portrait,
+.person-photo {
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #e4e9e5;
+}
+
+/* Portraits fill the frame so every author looks the same size; the focal
+   point sits in the upper part, where faces usually are. */
+.portrait img,
+.person-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.person {
+  min-width: 0;
+}
+
+.person-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.15rem;
+}
+
+.person-name a {
+  color: var(--ink);
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.grayscale:hover {
+  filter: grayscale(0%);
+}
+
+/* ---------- Panels, forms, pills ---------- */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.panel h2 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+.panel-narrow {
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]):not([type="hidden"]):not([type="button"]),
+.page form textarea,
+.page form select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid #b9c4be;
+  border-radius: var(--radius);
+}
+
+.page form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]):not([type="hidden"]):not([type="button"]):focus,
+.page form textarea:focus,
+.page form select:focus {
+  border-color: var(--moss);
+  box-shadow: 0 0 0 3px rgba(47, 107, 88, 0.2);
+  outline: none;
+}
+
+.page form label {
+  font-weight: 700;
+}
+
+.page form p {
+  max-width: none;
+}
+
+.helptext,
+.form-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.pill-input,
+.scale-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.page form .pill,
+.page form .scale-label {
+  display: inline-block;
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pill {
+  padding: 0.35rem 1rem;
+  border: 1px solid #b9c4be;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.pill:hover {
+  border-color: var(--moss);
+}
+
+.pill-input:checked + .pill {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: #fff;
+}
+
+.pill-input:checked + .pill::before {
+  content: "✓ ";
+}
+
+fieldset.scale-group {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.scale-group legend {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  position: relative;
+}
+
+.scale-label {
+  min-width: 2.4rem;
+  text-align: center;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #b9c4be;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.scale-label:hover {
+  border-color: var(--moss);
+}
+
+.scale-input:checked + .scale-label {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #1d1708;
+  font-weight: 700;
+}
+
+/* ---------- Reviews ---------- */
+
+.reviews h2 {
+  margin-bottom: 1rem;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 0.25rem 0.9rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.review:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--line);
+}
+
+.review-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+}
+
+.review-score {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.review-text {
+  grid-column: 2;
+  margin: 0.25rem 0 0;
+}
+
+/* ---------- Library page ---------- */
+
+.library-shelf {
+  margin-bottom: 2.75rem;
+}
+
+.library-shelf-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.library-shelf-head h2 {
+  margin: 0;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 1.5rem 0;
+}
+
+/* ---------- Pagination, alerts, tables ---------- */
+
+.pagination {
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.page-link {
+  color: var(--moss);
+  border-color: var(--line);
+}
+
+.page-link:hover {
+  color: var(--moss-dark);
+  background: var(--page);
+}
+
+.page-item.disabled .page-link {
+  color: var(--muted);
+  background: transparent;
+}
+
+.alert {
+  border-radius: var(--radius);
+}
+
+.alert-success {
+  background: #e3efe9;
+  border-color: #bcd6c9;
+  color: #1b4a3a;
+}
+
+.table {
+  background: var(--surface);
+}
+
+.table thead th {
+  border-bottom: 2px solid var(--line);
+  color: var(--ink);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Legacy size classes (still used by a few templates) ---------- */
+
+.book-cover { width: 300px; height: 440px; object-fit: contain; }
+.book-cover-medium { width: 150px; height: 220px; object-fit: contain; }
+.book-cover-small { width: 75px; height: 110px; object-fit: contain; }
+.author-photo { width: 300px; height: 440px; object-fit: contain; }
+.author-photo-small { width: 75px; height: 110px; object-fit: contain; }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 767.98px) {
+  .detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .detail-cover,
+  .portrait {
+    max-width: 240px;
+  }
+
+  .site-account {
+    margin-left: 0;
+  }
+
+  h1 { font-size: 1.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grayscale {
+    transition: none;
+  }
+}

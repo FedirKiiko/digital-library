@@ -1,0 +1,8 @@
+<article class="person">
+  <a class="person-photo" href="{% url 'digital_library:author-detail' author.id %}">
+    <img src="{{ author.photo.url }}" alt="Portrait of {{ author }}" loading="lazy"{% if not author.is_alive %} class="grayscale"{% endif %}>
+  </a>
+  <h3 class="person-name"><a href="{% url 'digital_library:author-detail' author.id %}">{{ author }}</a></h3>
+  {% if author.country %}<p class="shelf-item-sub">{{ author.country }}</p>{% endif %}
+  <p class="shelf-item-sub">{{ author.books.all|length }} book{{ author.books.all|length|pluralize }}</p>
+</article>
