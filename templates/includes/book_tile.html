@@ -1,0 +1,17 @@
+<article class="shelf-item">
+  <a class="shelf-item-cover" href="{% url 'digital_library:book-detail' book.id %}">
+    <img src="{{ book.cover_image.url }}" alt="Cover of {{ book.title }}" loading="lazy">
+  </a>
+  <div class="shelf-item-caption">
+    <h3 class="shelf-item-title"><a href="{% url 'digital_library:book-detail' book.id %}">{{ book.title }}</a></h3>
+    {% if not compact %}
+      <p class="shelf-item-sub">{{ book.authors.all|join:", " }}</p>
+      {% if book.avg_rating %}
+        <div class="rating-inline">
+          <span class="star-rating" aria-hidden="true"><span class="stars-filled" style="width: {% widthratio book.avg_rating 10 100 %}%;"></span></span>
+          <span class="rating-number">{{ book.avg_rating|floatformat:1 }}<span class="sr-only"> out of 10</span></span>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</article>
